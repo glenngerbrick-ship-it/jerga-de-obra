@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Jobsite Spanish — Construction & Welding</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a237e">
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #f97316;
+  --accent-dark: #ea580c;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --success: #22c55e;
+  --danger: #ef4444;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+header {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header h1 span { color: var(--accent); }
+.logo { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
+.search-bar {
+  margin-top: 12px;
+  position: relative;
+}
+.search-bar input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: white;
+  font-size: 16px;
+}
+.search-bar::before {
+  content: "🔍";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+nav.tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 16px;
+  background: #0f172a;
+  scrollbar-width: none;
+}
+nav.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.container { padding: 16px; }
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+.category-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #334155;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.category-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.category-card .icon { font-size: 2rem; margin-bottom: 8px; }
+.category-card h3 { font-size: 0.95rem; margin-bottom: 4px; }
+.category-card p { font-size: 0.75rem; color: var(--muted); }
+.card-list { display: flex; flex-direction: column; gap: 12px; }
+.phrase-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #334155;
+  cursor: pointer;
+  position: relative;
+}
+.phrase-card .spanish { font-size: 1.15rem; font-weight: 600; margin-bottom: 4px; }
+.phrase-card .english { color: var(--muted); font-size: 0.9rem; }
+.phrase-card .play {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+.quiz-area {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px 16px;
+  text-align: center;
+}
+.quiz-area h2 { margin-bottom: 8px; }
+.quiz-area .prompt { font-size: 1.4rem; font-weight: 600; margin: 20px 0; min-height: 60px; }
+.options { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.option {
+  padding: 14px;
+  border-radius: 12px;
+  background: #0f172a;
+  border: 2px solid #334155;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+.option.correct { border-color: var(--success); background: rgba(34,197,94,0.15); }
+.option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.15); }
+.score { margin-top: 16px; color: var(--muted); }
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  border-top: 1px solid #334155;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 20px;
+  z-index: 100;
+}
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.nav-btn.active { color: var(--accent); }
+.nav-btn span { font-size: 22px; }
+.hidden { display: none !important; }
+.progress-bar {
+  height: 6px;
+  background: #334155;
+  border-radius: 3px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+.progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.3s; }
+</style>
+</head>
+<body>
+<header>
+  <h1>
+    <img src="icon.jpg" alt="Logo" class="logo">
+    Jobsite <span>Spanish</span>
+  </h1>
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search phrases or tools...">
+  </div>
+</header>
+
+<nav class="tabs" id="categoryTabs"></nav>
+
+<div class="container" id="mainContent">
+  <!-- Dynamic content -->
+</div>
+
+<div class="bottom-nav">
+  <button class="nav-btn active" data-view="home"><span>🏠</span>Home</button>
+  <button class="nav-btn" data-view="quiz"><span>🎯</span>Quiz</button>
+  <button class="nav-btn" data-view="progress"><span>📊</span>Progress</button>
+</div>
+
+<script>
+const phrases = [
+  // Safety
+  { cat: "Safety", es: "¡Cuidado!", en: "Watch out! / Careful!", tip: "Said loudly and quickly" },
+  { cat: "Safety", es: "¡Alto!", en: "Stop!", tip: "Immediate command" },
+  { cat: "Safety", es: "¡Peligro!", en: "Danger!", tip: "Warn of hazard" },
+  { cat: "Safety", es: "Ponte el casco.", en: "Put on your hard hat.", tip: "PPE essential" },
+  { cat: "Safety", es: "Usa las gafas de seguridad.", en: "Wear safety glasses.", tip: "Eye protection" },
+  { cat: "Safety", es: "Necesitas el arnés.", en: "You need the harness.", tip: "Fall protection" },
+  { cat: "Safety", es: "¡Aguas!", en: "Heads up! (Mexican crews)", tip: "Common on US jobsites" },
+  { cat: "Safety", es: "Aléjate de la máquina.", en: "Stay away from the machine.", tip: "Equipment safety" },
+  { cat: "Safety", es: "El arnés está roto.", en: "The harness is broken.", tip: "Report issues" },
+  { cat: "Safety", es: "Se requiere EPP.", en: "PPE is required.", tip: "Equipo de protección personal" },
+
+  // Tools
+  { cat: "Tools", es: "el martillo", en: "hammer", tip: "Basic tool" },
+  { cat: "Tools", es: "el taladro", en: "drill", tip: "Power tool" },
+  { cat: "Tools", es: "la amoladora", en: "angle grinder", tip: "Very common" },
+  { cat: "Tools", es: "la sierra circular", en: "circular saw", tip: "Cutting tool" },
+  { cat: "Tools", es: "la cinta métrica", en: "tape measure", tip: "Measuring" },
+  { cat: "Tools", es: "el nivel", en: "level", tip: "For leveling" },
+  { cat: "Tools", es: "la escalera", en: "ladder", tip: "Access" },
+  { cat: "Tools", es: "el andamio", en: "scaffold", tip: "Elevated work" },
+  { cat: "Tools", es: "la llave inglesa", en: "adjustable wrench", tip: "Also 'la llave'" },
+  { cat: "Tools", es: "los alicates", en: "pliers", tip: "Hand tool" },
+  { cat: "Tools", es: "Pásame el martillo.", en: "Pass me the hammer.", tip: "Common request" },
+  { cat: "Tools", es: "¿Dónde está el taladro?", en: "Where is the drill?", tip: "Finding tools" },
+
+  // Materials
+  { cat: "Materials", es: "el cemento", en: "cement", tip: "Building material" },
+  { cat: "Materials", es: "el hormigón / el concreto", en: "concrete", tip: "Both used" },
+  { cat: "Materials", es: "el ladrillo", en: "brick", tip: "Masonry" },
+  { cat: "Materials", es: "la varilla / el acero de refuerzo", en: "rebar", tip: "Reinforcement" },
+  { cat: "Materials", es: "la madera", en: "wood / lumber", tip: "Framing" },
+  { cat: "Materials", es: "el acero", en: "steel", tip: "Structural" },
+  { cat: "Materials", es: "la arena", en: "sand", tip: "Mix" },
+  { cat: "Materials", es: "la grava", en: "gravel", tip: "Aggregate" },
+  { cat: "Materials", es: "Necesitamos más cemento.", en: "We need more cement.", tip: "Ordering" },
+  { cat: "Materials", es: "¿Dónde está la varilla?", en: "Where is the rebar?", tip: "Locating materials" },
+
+  // Welding
+  { cat: "Welding", es: "la soldadora MIG", en: "MIG welder", tip: "Gas Metal Arc" },
+  { cat: "Welding", es: "la soldadora TIG", en: "TIG welder", tip: "Tungsten" },
+  { cat: "Welding", es: "soldadura por electrodo / stick", en: "stick welding", tip: "SMAW" },
+  { cat: "Welding", es: "el casco de soldar", en: "welding helmet", tip: "Critical PPE" },
+  { cat: "Welding", es: "los guantes de soldadura", en: "welding gloves", tip: "Heat protection" },
+  { cat: "Welding", es: "el electrodo", en: "electrode / rod", tip: "Consumable" },
+  { cat: "Welding", es: "el alambre de soldadura", en: "welding wire", tip: "MIG/TIG filler" },
+  { cat: "Welding", es: "la antorcha", en: "torch", tip: "Welding gun/torch" },
+  { cat: "Welding", es: "el gas de protección", en: "shielding gas", tip: "Argon, CO2, etc." },
+  { cat: "Welding", es: "soldar a tope", en: "butt weld", tip: "Joint type" },
+  { cat: "Welding", es: "soldadura de filete", en: "fillet weld", tip: "Common joint" },
+  { cat: "Welding", es: "¿Necesitas más electrodos?", en: "Do you need more rods?", tip: "Supply" },
+  { cat: "Welding", es: "Baja la amperaje.", en: "Lower the amperage.", tip: "Machine settings" },
+  { cat: "Welding", es: "Limpia la escoria.", en: "Clean the slag.", tip: "Post-weld" },
+  { cat: "Welding", es: "El arco está inestable.", en: "The arc is unstable.", tip: "Troubleshooting" },
+
+  // Commands
+  { cat: "Commands", es: "Más rápido.", en: "Faster.", tip: "Pace" },
+  { cat: "Commands", es: "Más despacio.", en: "Slower.", tip: "Pace" },
+  { cat: "Commands", es: "Ayúdame a levantar esto.", en: "Help me lift this.", tip: "Teamwork" },
+  { cat: "Commands", es: "Mide aquí.", en: "Measure here.", tip: "Layout" },
+  { cat: "Commands", es: "Corta esto.", en: "Cut this.", tip: "Instruction" },
+  { cat: "Commands", es: "Nivélalo.", en: "Level it.", tip: "Quality" },
+  { cat: "Commands", es: "Empieza por aquí.", en: "Start here.", tip: "Direction" },
+  { cat: "Commands", es: "¿Entiendes?", en: "Do you understand?", tip: "Check comprehension" },
+  { cat: "Commands", es: "Repite, por favor.", en: "Repeat, please.", tip: "Clarity" },
+  { cat: "Commands", es: "Buen trabajo.", en: "Good job.", tip: "Positive feedback" },
+
+  // Daily
+  { cat: "Daily", es: "Buenos días.", en: "Good morning.", tip: "Greeting" },
+  { cat: "Daily", es: "¿Qué hacemos hoy?", en: "What are we doing today?", tip: "Start of day" },
+  { cat: "Daily", es: "Estoy listo.", en: "I'm ready.", tip: "Ready to work" },
+  { cat: "Daily", es: "Es hora del descanso.", en: "It's break time.", tip: "Break" },
+  { cat: "Daily", es: "¿Dónde está el baño?", en: "Where is the bathroom?", tip: "Practical" },
+  { cat: "Daily", es: "Necesito ayuda.", en: "I need help.", tip: "Request" },
+  { cat: "Daily", es: "¿Quién es el capataz?", en: "Who is the foreman?", tip: "Roles" },
+  { cat: "Daily", es: "Hasta mañana.", en: "See you tomorrow.", tip: "End of day" },
+  { cat: "Daily", es: "Soy nuevo en esta obra.", en: "I'm new on this site.", tip: "Intro" },
+  { cat: "Daily", es: "¿A qué hora terminamos?", en: "What time do we finish?", tip: "Schedule" }
+];
+
+const categories = [
+  { id: "Safety", icon: "⚠️", name: "Safety", desc: "Critical phrases" },
+  { id: "Tools", icon: "🔧", name: "Tools", desc: "Hand & power tools" },
+  { id: "Materials", icon: "🧱", name: "Materials", desc: "Concrete, steel, wood" },
+  { id: "Welding", icon: "🔥", name: "Welding", desc: "MIG, TIG, stick" },
+  { id: "Commands", icon: "📢", name: "Commands", desc: "Give directions" },
+  { id: "Daily", icon: "☀️", name: "Daily", desc: "Everyday phrases" }
+];
+
+let currentCat = "all";
+let currentView = "home";
+let quizIndex = 0;
+let quizScore = 0;
+let quizQuestions = [];
+
+const main = document.getElementById("mainContent");
+const tabs = document.getElementById("categoryTabs");
+
+function renderTabs() {
+  tabs.innerHTML = `<div class="tab ${currentCat==='all'?'active':''}" data-cat="all">All</div>` +
+    categories.map(c => `<div class="tab ${currentCat===c.id?'active':''}" data-cat="${c.id}">${c.icon} ${c.name}</div>`).join("");
+  tabs.querySelectorAll(".tab").forEach(t => {
+    t.onclick = () => { currentCat = t.dataset.cat; render(); };
+  });
+}
+
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "es-MX";
+    u.rate = 0.9;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }
+}
+
+function renderHome() {
+  const filtered = currentCat === "all" ? phrases : phrases.filter(p => p.cat === currentCat);
+  const search = document.getElementById("search").value.toLowerCase();
+  const results = search ? filtered.filter(p => 
+    p.es.toLowerCase().includes(search) || p.en.toLowerCase().includes(search) || p.cat.toLowerCase().includes(search)
+  ) : filtered;
+
+  if (currentCat === "all" && !search) {
+    main.innerHTML = `
+      <div class="category-grid">
+        ${categories.map(c => `
+          <div class="category-card" data-cat="${c.id}">
+            <div class="icon">${c.icon}</div>
+            <h3>${c.name}</h3>
+            <p>${c.desc}</p>
+          </div>
+        `).join("")}
+      </div>
+      <h3 style="margin: 24px 0 12px;">Recent / Popular</h3>
+      <div class="card-list">
+        ${phrases.slice(0, 6).map(p => phraseCard(p)).join("")}
+      </div>
+    `;
+    main.querySelectorAll(".category-card").forEach(c => {
+      c.onclick = () => { currentCat = c.dataset.cat; render(); };
+    });
+  } else {
+    main.innerHTML = `<div class="card-list">${results.length ? results.map(p => phraseCard(p)).join("") : "<p style='text-align:center;color:#94a3b8;padding:40px;'>No phrases found.</p>"}</div>`;
+  }
+  attachPlay();
+}
+
+function phraseCard(p) {
+  return `
+    <div class="phrase-card">
+      <div class="spanish">${p.es}</div>
+      <div class="english">${p.en}</div>
+      ${p.tip ? `<div style="font-size:0.75rem;color:#64748b;margin-top:6px;">💡 ${p.tip}</div>` : ""}
+      <button class="play" data-text="${p.es.replace(/"/g,'"')}">🔊</button>
+    </div>
+  `;
+}
+
+function attachPlay() {
+  document.querySelectorAll(".play").forEach(b => {
+    b.onclick = (e) => { e.stopPropagation(); speak(b.dataset.text); };
+  });
+}
+
+function startQuiz() {
+  quizQuestions = [...phrases].sort(() => Math.random() - 0.5).slice(0, 10);
+  quizIndex = 0;
+  quizScore = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  if (quizIndex >= quizQuestions.length) {
+    main.innerHTML = `
+      <div class="quiz-area">
+        <h2>Quiz Complete!</h2>
+        <p style="font-size:2rem;margin:16px 0;">${quizScore} / ${quizQuestions.length}</p>
+        <p>${quizScore >= 8 ? "Great job! You're ready for the jobsite." : "Keep practicing — safety first!"}</p>
+        <button onclick="startQuiz()" style="margin-top:20px;padding:12px 24px;background:var(--accent);border:none;border-radius:12px;color:white;font-size:16px;cursor:pointer;">Try Again</button>
+      </div>
+    `;
+    return;
+  }
+  const q = quizQuestions[quizIndex];
+  const options = [q.en];
+  while (options.length < 4) {
+    const rand = phrases[Math.floor(Math.random()*phrases.length)].en;
+    if (!options.includes(rand)) options.push(rand);
+  }
+  options.sort(() => Math.random() - 0.5);
+
+  main.innerHTML = `
+    <div class="quiz-area">
+      <div class="progress-bar"><div class="progress-fill" style="width:${(quizIndex/quizQuestions.length)*100}%"></div></div>
+      <p style="color:var(--muted);font-size:0.85rem;">Question ${quizIndex+1} of ${quizQuestions.length}</p>
+      <div class="prompt">${q.es}</div>
+      <div class="options">
+        ${options.map(o => `<div class="option" data-correct="${o===q.en}">${o}</div>`).join("")}
+      </div>
+    </div>
+  `;
+  document.querySelectorAll(".option").forEach(opt => {
+    opt.onclick = () => {
+      document.querySelectorAll(".option").forEach(o => o.style.pointerEvents = "none");
+      if (opt.dataset.correct === "true") {
+        opt.classList.add("correct");
+        quizScore++;
+      } else {
+        opt.classList.add("wrong");
+        document.querySelector('.option[data-correct="true"]').classList.add("correct");
+      }
+      setTimeout(() => { quizIndex++; showQuestion(); }, 900);
+    };
+  });
+}
+
+function renderProgress() {
+  const mastered = JSON.parse(localStorage.getItem("mastered") || "[]");
+  main.innerHTML = `
+    <div class="quiz-area">
+      <h2>Your Progress</h2>
+      <p style="margin:16px 0;font-size:1.2rem;">${mastered.length} phrases marked as known</p>
+      <p style="color:var(--muted);">Tap phrases and mark them as you learn. (Feature coming soon — for now practice with Quiz!)</p>
+      <div class="progress-bar" style="margin-top:20px;"><div class="progress-fill" style="width:${Math.min(100, mastered.length*2)}%"></div></div>
+    </div>
+  `;
+}
+
+function render() {
+  renderTabs();
+  if (currentView === "home") renderHome();
+  else if (currentView === "quiz") startQuiz();
+  else if (currentView === "progress") renderProgress();
+}
+
+document.querySelectorAll(".nav-btn").forEach(b => {
+  b.onclick = () => {
+    document.querySelectorAll(".nav-btn").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    currentView = b.dataset.view;
+    currentCat = "all";
+    render();
+  };
+});
+
+document.getElementById("search").oninput = () => { if (currentView === "home") renderHome(); };
+
+// Init
+render();
+
+// PWA basics
+if ('serviceWorker' in navigator) {
+  // Optional: could register later
+}
+</script>
+</body>
+</html>

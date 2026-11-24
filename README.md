@@ -1,24 +1,26 @@
 # Jobsite Spanish
 
-Practical Spanish for construction, welding, and trades jobsites.
-
-Focused on real work phrases for safety, tools, materials, welding, commands, and daily communication — not tourist Spanish.
+Practical Spanish for construction, welding, and trades jobsites — the phrases crews actually yell, not tourist textbook lines.
 
 ## Features
-- Category-based phrase lists
-- Audio pronunciation (device TTS, Mexican Spanish)
-- Search
-- Quiz mode
-- Mobile-friendly dark UI
-- PWA-ready (manifest included)
+- Category browsing (Safety, Tools, Welding, and more)
+- Search across Spanish, English, and tips
+- Device TTS pronunciation (Mexican Spanish)
+- Drill mode with streaks and score tracking
+- Add your own crew slang (saved locally)
+- Speak mode to hear and save phrases
+- Mark phrases as known; progress stats
 
 ## Files
-- `index.html` — full working app
+- `index.html` — full app
 - `manifest.json` — PWA manifest
-- Add `icon.jpg` for the logo (referenced in the app)
+- `icon.png` — app icon
 
 ## Run
-Open `index.html` in any browser, or deploy to Netlify/Vercel/GitHub Pages.
+Open `index.html` in a browser, or serve the folder locally:
 
-## Next steps
-Expand phrases, add native audio, progress tracking, more trades, or wrap as a mobile app.
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Then visit `http://127.0.0.1:8000`.

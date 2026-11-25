@@ -1,7 +1,7 @@
 {
-  "name": "Jobsite Spanish",
-  "short_name": "Jobsite ES",
-  "description": "Real Spanish for construction and welding crews.",
+  "name": "Jerga de Obra",
+  "short_name": "Jerga",
+  "description": "Unfiltered Spanish for construction crews \u2014 jerga de obra, not tourist Spanish.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

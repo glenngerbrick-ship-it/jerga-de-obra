@@ -89,38 +89,38 @@ else:
     CSS_FULL = CSS + EXTRA_CSS
 
 JS = r"""
-const DATA = window.JOBSITE_DATA;
+const DATA = window.JERGA_DATA;
 const builtInPhrases = DATA.phrases;
 const categories = DATA.categories;
 
 const QUIZ_LINES = {
   win: [
-    "Foreman material. Keep going.",
-    "You'd survive day one. Barely. Nice.",
-    "That's jobsite Spanish. Not tourist Spanish."
+    "Foreman material. Filthy and fluent.",
+    "You'd survive day one. Mouth and all.",
+    "That's jerga. Not Duolingo."
   ],
   mid: [
-    "Not bad. Don't freeze when someone yells ¡Aguas!",
-    "Halfway there. Drill it again before the pour."
+    "Not bad. Don't freeze when someone yells ¡Aguas, cabrón!",
+    "Halfway. Drill the dirty ones before the pour."
   ],
   low: [
-    "Rough shift. Hit Safety again — that one's non-negotiable.",
-    "Shake it off. Real crews mess up phrases too — then they learn."
+    "Rough shift. Hit Safety — and Jerga — again.",
+    "Shake it off. Real crews cuss, then they learn."
   ]
 };
 
 const ONBOARD_STEPS = [
   {
     title: "Talk like the crew",
-    body: "Browse Safety, Tools, HVAC, Plumbing, Scaffolding, Heavy Equip — phrases people actually yell on site."
+    body: "Browse Safety, Tools, Jerga, HVAC — phrases people actually yell, including the filthy ones."
   },
   {
-    title: "Hear real Spanish audio",
-    body: "Tap SAY / Hear for Mexican Spanish clips. Flip cards, Drill both ways, and star favorites."
+    title: "Hear real Mexican Spanish",
+    body: "Tap SAY for Mexican Spanish clips. Flip, Drill both ways, star the keepers — vulgar allowed."
   },
   {
     title: "Review what sticks",
-    body: "Mark GOT IT, run Review for due phrases, and keep custom slang in More. Offline once installed."
+    body: "Mark GOT IT, Review due phrases, add your crew's worst hits. Offline once installed."
   }
 ];
 
@@ -605,7 +605,7 @@ function renderAdd() {
   main.innerHTML = `
     <div class="panel blaze">
       <h2>Add your slang</h2>
-      <p class="lead">If your crew says it, it belongs in the app. Flip and Drill pick these up automatically.</p>
+      <p class="lead">If your crew says it — even the filthy stuff — it belongs here.</p>
       <label for="newEs">Spanish</label>
       <input id="newEs" type="text" placeholder="Pásame la varilla">
       <label for="newEn">English</label>
@@ -930,7 +930,7 @@ function renderProgress() {
     <div class="panel">
       <h2>Your stats</h2>
       <p class="lead">
-        Known + favorites + spaced review. Built-in phrases ship with MX audio.
+        Known + favorites + spaced review. Built-in jerga ships with MX audio.
         ${offline ? `<span class="offline-pill">Offline</span>` : `<span class="offline-pill" style="background:#fff;">Online ready</span>`}
       </p>
       <div class="stat-grid">
@@ -1030,8 +1030,8 @@ html = f"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Real Spanish for construction and welding crews — safety, tools, HVAC, plumbing, and jobsite talk with Mexican Spanish audio.">
-<title>Jobsite Spanish</title>
+<meta name="description" content="Jerga de obra for construction crews — safety, tools, and unfiltered shop talk with Mexican Spanish audio.">
+<title>Jerga de Obra</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.png" type="image/png">
 <meta name="theme-color" content="#FFD100">
@@ -1048,13 +1048,13 @@ html = f"""<!DOCTYPE html>
     <div class="brand-row">
       <img src="icon.png" alt="" class="logo" width="56" height="56">
       <div class="brand-text">
-        <h1>JOBSITE <em>SPANISH</em></h1>
-        <p class="tagline">Talk like the crew. Not like a textbook.</p>
+        <h1>JERGA <em>DE OBRA</em></h1>
+        <p class="tagline">Crew slang. Not tourist Spanish.</p>
       </div>
     </div>
     <div class="search-wrap" id="searchWrap">
       <span class="mag" aria-hidden="true"></span>
-      <input type="search" id="search" placeholder="Search phrases, tools, slang…" autocomplete="off" enterkeyhint="search">
+      <input type="search" id="search" placeholder="Search jerga, tools, slang…" autocomplete="off" enterkeyhint="search">
     </div>
   </header>
 

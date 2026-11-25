@@ -1,4 +1,4 @@
-const CACHE = "jobsite-spanish-v5";
+const CACHE = "jerga-de-obra-v1";
 const ASSETS = [
   "./",
   "./index.html",

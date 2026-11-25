@@ -1783,6 +1783,10 @@ function render() {
 
 document.querySelectorAll(".nav-btn").forEach(b => {
   b.onclick = () => {
+    stopAudio();
+    const toastEl = document.getElementById("toast");
+    toastEl.classList.remove("show");
+    clearTimeout(toast._t);
     document.querySelectorAll(".nav-btn").forEach(x => x.classList.remove("on"));
     b.classList.add("on");
     currentView = b.dataset.view;

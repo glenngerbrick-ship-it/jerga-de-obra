@@ -5,14 +5,17 @@ Practical Spanish for construction, welding, and trades jobsites — the phrases
 ## Features
 - Category browsing (Safety, Tools, Welding, and more)
 - Search across Spanish, English, and tips
-- Device TTS pronunciation (Mexican Spanish)
-- Drill mode with streaks and score tracking
-- Add your own crew slang (saved locally)
+- **Flip cards** — tap to reveal, mark known, shuffle
+- Drill mode with ES→EN / EN→ES, streaks, and score tracking
+- Device TTS pronunciation (Mexican Spanish) with speed control
+- Add / delete your own crew slang (saved locally)
 - Speak mode to hear and save phrases
-- Mark phrases as known; progress stats
+- Offline-ready PWA (service worker + manifest)
+- High-vis safety yellow / black / white theme
 
 ## Files
 - `index.html` — full app
+- `sw.js` — offline cache
 - `manifest.json` — PWA manifest
 - `icon.png` — app icon
 

@@ -17,6 +17,18 @@ Unfiltered Spanish for construction, welding, and trades jobsites — crew slang
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
+Visit `http://127.0.0.1:8000`.
+
+## Deploy
+
+The live site is meant to be:
+
+https://glenngerbrick-ship-it.github.io/jerga-de-obra/
+
+Push to `main` runs `.github/workflows/deploy-pages.yml`. GitHub Pages must be turned on once in the repo: **Settings → Pages → Source → GitHub Actions**. The deploy workflow cannot create the Pages site by itself.
+
+If the GitHub repo is still named `jobsite-spanish`, rename it to `jerga-de-obra` in **Settings → General → Repository name** so the live URL matches the product name. GitHub keeps a redirect from the old repo URL.
+
 ## Regenerate audio
 
 ```bash

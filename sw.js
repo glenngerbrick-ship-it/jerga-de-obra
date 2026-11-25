@@ -1,9 +1,11 @@
-const CACHE = "jobsite-spanish-v3";
+const CACHE = "jobsite-spanish-v5";
 const ASSETS = [
   "./",
   "./index.html",
+  "./phrases.js",
   "./manifest.json",
-  "./icon.png"
+  "./icon.png",
+  "./sw.js"
 ];
 
 self.addEventListener("install", (event) => {

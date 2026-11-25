@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Real Spanish for construction and welding crews — safety, tools, and jobsite talk.">
+<meta name="description" content="Real Spanish for construction and welding crews — safety, tools, HVAC, plumbing, and jobsite talk with Mexican Spanish audio.">
 <title>Jobsite Spanish</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.png" type="image/png">
 <meta name="theme-color" content="#FFD100">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -762,6 +764,82 @@ input:focus, select:focus, textarea:focus {
   padding: 4px 10px;
   border-radius: 999px;
 }
+
+.badge.fav { background: var(--blaze); border-color: var(--ink); color: var(--ink); }
+.badge.due { background: #fff; border-color: var(--bad); color: var(--bad); }
+.icon-btn.fav.on {
+  background: var(--blaze);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.quick-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+}
+.quick-row .btn { flex: 1; min-width: 120px; font-size: 0.85rem; padding: 12px 10px; }
+.onboard {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(10,10,10,0.72);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 18px;
+  animation: fadeIn 0.25s ease both;
+}
+.onboard[hidden] { display: none !important; }
+.onboard-card {
+  width: min(520px, 100%);
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 20px;
+  padding: 24px 20px 20px;
+  box-shadow: 10px 10px 0 var(--blaze);
+  animation: rise 0.4s ease both;
+}
+.onboard-card h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  margin-bottom: 8px;
+}
+.onboard-card p {
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+.onboard-steps {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.onboard-steps span {
+  flex: 1;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+}
+.onboard-steps span.on { background: var(--blaze); border-color: var(--ink); }
+.audio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--ink);
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
 </style>
 </head>
 <body>
@@ -792,160 +870,14 @@ input:focus, select:focus, textarea:focus {
   <button class="nav-btn" data-view="progress"><span class="glyph">XP</span>More</button>
 </nav>
 <div class="toast" id="toast" role="status"></div>
+<div class="onboard" id="onboard" hidden></div>
 
+<script src="phrases.js"></script>
 <script>
-const builtInPhrases = [
-  // Safety — blunt & useful
-  { cat: "Safety", es: "¡Cuidado!", en: "Watch out!", tip: "Yell it. Don't whisper it." },
-  { cat: "Safety", es: "¡Alto!", en: "Stop! Right now.", tip: "Immediate command" },
-  { cat: "Safety", es: "¡Peligro!", en: "Danger!", tip: "Hazard nearby" },
-  { cat: "Safety", es: "¡Aguas!", en: "Heads up!", tip: "Mexican crews say this constantly" },
-  { cat: "Safety", es: "¡Abajo!", en: "Below! / Heads down!", tip: "Something's falling — move" },
-  { cat: "Safety", es: "Ponte el casco.", en: "Put on your hard hat.", tip: "No hat, no work" },
-  { cat: "Safety", es: "Usa las gafas.", en: "Wear your safety glasses.", tip: "Short form crews use" },
-  { cat: "Safety", es: "Necesitas el arnés.", en: "You need the harness.", tip: "Fall protection" },
-  { cat: "Safety", es: "El arnés está jodido.", en: "The harness is wrecked.", tip: "Report it — don't use it" },
-  { cat: "Safety", es: "Se requiere EPP siempre.", en: "PPE required at all times.", tip: "Equipo de protección personal" },
-  { cat: "Safety", es: "Aléjate de la máquina.", en: "Get away from the machine.", tip: "Equipment swing radius" },
-  { cat: "Safety", es: "No toques eso.", en: "Don't touch that.", tip: "Hot, sharp, or live" },
-  { cat: "Safety", es: "¿Estás bien?", en: "You okay?", tip: "After a near miss" },
-  { cat: "Safety", es: "Llama al nueve-uno-uno.", en: "Call 911.", tip: "Emergency" },
-  { cat: "Safety", es: "Hay un hueco abierto.", en: "There's an open hole.", tip: "Cover / barricade it" },
-  { cat: "Safety", es: "No camines por ahí.", en: "Don't walk over there.", tip: "Keep people out of the zone" },
 
-  // Tools
-  { cat: "Tools", es: "el martillo", en: "hammer", tip: "Basic" },
-  { cat: "Tools", es: "el taladro", en: "drill", tip: "Power tool" },
-  { cat: "Tools", es: "la amoladora", en: "angle grinder", tip: "Sparks flying = this" },
-  { cat: "Tools", es: "la sierra circular", en: "circular saw", tip: "Cutting" },
-  { cat: "Tools", es: "la cinta métrica", en: "tape measure", tip: "Measure twice" },
-  { cat: "Tools", es: "el nivel", en: "level", tip: "Is it plumb?" },
-  { cat: "Tools", es: "la escalera", en: "ladder", tip: "3-point contact" },
-  { cat: "Tools", es: "el andamio", en: "scaffold", tip: "Elevated work" },
-  { cat: "Tools", es: "la llave inglesa", en: "adjustable wrench", tip: "Also just 'la llave'" },
-  { cat: "Tools", es: "los alicates", en: "pliers", tip: "Hand tool" },
-  { cat: "Tools", es: "el destornillador", en: "screwdriver", tip: "Also 'desarmador'" },
-  { cat: "Tools", es: "la pala", en: "shovel", tip: "Dig" },
-  { cat: "Tools", es: "la carretilla", en: "wheelbarrow", tip: "Haul materials" },
-  { cat: "Tools", es: "Pásame el martillo.", en: "Pass me the hammer.", tip: "Most-used sentence on site" },
-  { cat: "Tools", es: "¿Dónde está el taladro?", en: "Where's the drill?", tip: "Finding tools" },
-  { cat: "Tools", es: "Trae las herramientas.", en: "Bring the tools.", tip: "Direct" },
-  { cat: "Tools", es: "Eso está chueco.", en: "That's crooked / off.", tip: "Quality check, unfiltered" },
-  { cat: "Tools", es: "¿Tienes una extensión?", en: "Got an extension cord?", tip: "Power everywhere" },
-
-  // Materials
-  { cat: "Materials", es: "el cemento", en: "cement", tip: "Bags" },
-  { cat: "Materials", es: "el concreto", en: "concrete", tip: "Also 'hormigón'" },
-  { cat: "Materials", es: "el ladrillo", en: "brick", tip: "Masonry" },
-  { cat: "Materials", es: "la varilla", en: "rebar", tip: "Also 'acero de refuerzo'" },
-  { cat: "Materials", es: "la madera", en: "wood / lumber", tip: "Framing" },
-  { cat: "Materials", es: "el acero", en: "steel", tip: "Structural" },
-  { cat: "Materials", es: "la arena", en: "sand", tip: "Mix" },
-  { cat: "Materials", es: "la grava", en: "gravel", tip: "Aggregate" },
-  { cat: "Materials", es: "el triplay", en: "plywood", tip: "Sheets — common word on site" },
-  { cat: "Materials", es: "la tablaroca", en: "drywall", tip: "Also just 'drywall'" },
-  { cat: "Materials", es: "Necesitamos más cemento.", en: "We need more cement.", tip: "Ordering" },
-  { cat: "Materials", es: "¿Dónde está la varilla?", en: "Where's the rebar?", tip: "Locate" },
-  { cat: "Materials", es: "Deja la madera aquí.", en: "Leave the wood here.", tip: "Staging" },
-  { cat: "Materials", es: "Eso está muy pesado.", en: "That's too heavy.", tip: "Ask for help before you blow your back" },
-
-  // Welding
-  { cat: "Welding", es: "la soldadora MIG", en: "MIG welder", tip: "GMAW" },
-  { cat: "Welding", es: "la soldadora TIG", en: "TIG welder", tip: "GTAW" },
-  { cat: "Welding", es: "soldadura de electrodo", en: "stick welding", tip: "SMAW — also 'stick'" },
-  { cat: "Welding", es: "el casco de soldar", en: "welding helmet", tip: "No helmet, no arc" },
-  { cat: "Welding", es: "los guantes de soldadura", en: "welding gloves", tip: "Heat" },
-  { cat: "Welding", es: "el electrodo", en: "electrode / rod", tip: "Consumable" },
-  { cat: "Welding", es: "el alambre", en: "welding wire", tip: "MIG/TIG filler" },
-  { cat: "Welding", es: "la antorcha", en: "torch / gun", tip: "Welding torch" },
-  { cat: "Welding", es: "el gas de protección", en: "shielding gas", tip: "Argon, CO2…" },
-  { cat: "Welding", es: "soldadura de filete", en: "fillet weld", tip: "Common joint" },
-  { cat: "Welding", es: "soldar a tope", en: "butt weld", tip: "Joint type" },
-  { cat: "Welding", es: "Baja el amperaje.", en: "Lower the amperage.", tip: "Settings" },
-  { cat: "Welding", es: "Sube el amperaje.", en: "Crank up the amps.", tip: "Settings" },
-  { cat: "Welding", es: "Limpia la escoria.", en: "Chip the slag.", tip: "Post-weld" },
-  { cat: "Welding", es: "El arco está inestable.", en: "The arc is unstable.", tip: "Troubleshoot" },
-  { cat: "Welding", es: "Usa el casco.", en: "Use the helmet.", tip: "Flash burn is not a flex" },
-  { cat: "Welding", es: "Ventila el área.", en: "Ventilate the area.", tip: "Fumes" },
-  { cat: "Welding", es: "Esta soldadura está fea.", en: "This weld looks ugly.", tip: "Honest QC" },
-  { cat: "Welding", es: "¿Necesitas más electrodos?", en: "Need more rods?", tip: "Supply" },
-
-  // Electrical
-  { cat: "Electrical", es: "el cable", en: "wire / cable", tip: "Say the gauge if it matters" },
-  { cat: "Electrical", es: "el breaker", en: "circuit breaker", tip: "Everyone just says 'breaker'" },
-  { cat: "Electrical", es: "Apaga el breaker.", en: "Kill the breaker.", tip: "Before you touch anything" },
-  { cat: "Electrical", es: "Está energizado.", en: "It's live / hot.", tip: "Back off" },
-  { cat: "Electrical", es: "Verifica el voltaje.", en: "Check the voltage.", tip: "Test before touch" },
-  { cat: "Electrical", es: "el multímetro", en: "multimeter", tip: "Testing" },
-  { cat: "Electrical", es: "la cinta aislante", en: "electrical tape", tip: "Insulation" },
-  { cat: "Electrical", es: "No toques el cable.", en: "Don't touch the wire.", tip: "Safety" },
-  { cat: "Electrical", es: "Bloqueo y etiquetado.", en: "Lockout / tagout.", tip: "LOTO — non-negotiable" },
-  { cat: "Electrical", es: "Se fue la luz.", en: "Power's out.", tip: "Whole circuit or site" },
-
-  // Concrete
-  { cat: "Concrete", es: "el colado", en: "the pour", tip: "Big day language" },
-  { cat: "Concrete", es: "la losa", en: "the slab", tip: "Floor / deck" },
-  { cat: "Concrete", es: "la cimbra", en: "formwork", tip: "Also 'encofrado'" },
-  { cat: "Concrete", es: "Mezcla el concreto.", en: "Mix the concrete.", tip: "Prep" },
-  { cat: "Concrete", es: "La losa está lista.", en: "The slab's ready.", tip: "Status" },
-  { cat: "Concrete", es: "Necesitamos más varilla.", en: "We need more rebar.", tip: "Materials" },
-  { cat: "Concrete", es: "Nivela el concreto.", en: "Level the concrete.", tip: "Finish" },
-  { cat: "Concrete", es: "No camines en el fresco.", en: "Don't walk on the fresh pour.", tip: "You'll hear about it if you do" },
-
-  // Commands — direct jobsite voice
-  { cat: "Commands", es: "Más rápido.", en: "Faster.", tip: "Pace" },
-  { cat: "Commands", es: "Más despacio.", en: "Slow it down.", tip: "Pace" },
-  { cat: "Commands", es: "Ayúdame a levantar esto.", en: "Help me lift this.", tip: "Team lift" },
-  { cat: "Commands", es: "Mide aquí.", en: "Measure here.", tip: "Layout" },
-  { cat: "Commands", es: "Corta esto.", en: "Cut this.", tip: "Direct" },
-  { cat: "Commands", es: "Nivélalo.", en: "Level it.", tip: "Quality" },
-  { cat: "Commands", es: "Empieza por aquí.", en: "Start here.", tip: "Direction" },
-  { cat: "Commands", es: "¿Entiendes?", en: "You get it?", tip: "Check comprehension" },
-  { cat: "Commands", es: "Repite, por favor.", en: "Say that again.", tip: "Clarity over ego" },
-  { cat: "Commands", es: "Buen trabajo.", en: "Good work.", tip: "Say it when it's true" },
-  { cat: "Commands", es: "Así no.", en: "Not like that.", tip: "Correction without a speech" },
-  { cat: "Commands", es: "Haz esto.", en: "Do this.", tip: "Point while you say it" },
-  { cat: "Commands", es: "Ven conmigo.", en: "Come with me.", tip: "Follow" },
-  { cat: "Commands", es: "Déjalo ahí.", en: "Leave it there.", tip: "Stop moving stuff around" },
-  { cat: "Commands", es: "Muévelo para allá.", en: "Move it over there.", tip: "Point" },
-  { cat: "Commands", es: "Espérame.", en: "Wait up / hold on.", tip: "Buy yourself 10 seconds" },
-  { cat: "Commands", es: "Órale.", en: "Alright / let's go / okay.", tip: "Swiss-army word on many crews" },
-
-  // Daily
-  { cat: "Daily", es: "Buenos días.", en: "Morning.", tip: "Start right" },
-  { cat: "Daily", es: "¿Qué hacemos hoy?", en: "What are we doing today?", tip: "Day one question" },
-  { cat: "Daily", es: "Estoy listo.", en: "I'm ready.", tip: "Ready to work" },
-  { cat: "Daily", es: "Es hora del descanso.", en: "Break time.", tip: "Don't skip water" },
-  { cat: "Daily", es: "¿Dónde está el baño?", en: "Where's the bathroom?", tip: "Practical" },
-  { cat: "Daily", es: "Necesito ayuda.", en: "I need help.", tip: "Ask early" },
-  { cat: "Daily", es: "¿Quién es el capataz?", en: "Who's the foreman?", tip: "Roles" },
-  { cat: "Daily", es: "Hasta mañana.", en: "See you tomorrow.", tip: "End of day" },
-  { cat: "Daily", es: "Soy nuevo en esta obra.", en: "I'm new on this job.", tip: "Intro" },
-  { cat: "Daily", es: "¿A qué hora terminamos?", en: "What time do we wrap?", tip: "Schedule" },
-  { cat: "Daily", es: "Buen trabajo hoy.", en: "Good work today.", tip: "Close strong" },
-  { cat: "Daily", es: "Tengo hambre.", en: "I'm hungry.", tip: "Lunch diplomacy" },
-  { cat: "Daily", es: "Hace un calor de los mil demonios.", en: "It's brutally hot out.", tip: "Unfiltered weather talk" },
-  { cat: "Daily", es: "Vamos a echarle ganas.", en: "Let's put our backs into it.", tip: "Hype without being corny" },
-  { cat: "Daily", es: "¿Trajiste lonche?", en: "Did you bring lunch?", tip: "Lonche = lunch on many sites" },
-  { cat: "Daily", es: "Ya casi cerramos.", en: "We're almost wrapped.", tip: "End of day" },
-  { cat: "Commands", es: "No te hagas pendejo.", en: "Don't screw around / quit messing about.", tip: "Harsh — know your crew before you use it" },
-  { cat: "Commands", es: "Apúrate, por favor.", en: "Hurry up, please.", tip: "Softer than barking" },
-  { cat: "Safety", es: "Suelta eso, está caliente.", en: "Drop it — it's hot.", tip: "Burns happen fast" },
-  { cat: "Welding", es: "No mires el arco.", en: "Don't stare at the arc.", tip: "Flash burn lecture incoming" },
-  { cat: "Tools", es: "Está bien pinche pesado.", en: "This thing is damn heavy.", tip: "Unfiltered — get a second hand" }
-];
-
-const categories = [
-  { id: "Safety", mark: "SF", name: "Safety", desc: "Yell these loud" },
-  { id: "Tools", mark: "TL", name: "Tools", desc: "Pass me that" },
-  { id: "Materials", mark: "MT", name: "Materials", desc: "Bags, bars, boards" },
-  { id: "Welding", mark: "WD", name: "Welding", desc: "MIG, TIG, stick" },
-  { id: "Electrical", mark: "EL", name: "Electrical", desc: "Kill the power first" },
-  { id: "Concrete", mark: "CN", name: "Concrete", desc: "Pour day talk" },
-  { id: "Commands", mark: "CM", name: "Commands", desc: "Boss energy" },
-  { id: "Daily", mark: "DY", name: "Daily", desc: "Crew small talk" },
-  { id: "Custom", mark: "MY", name: "My Phrases", desc: "Your additions" }
-];
+const DATA = window.JOBSITE_DATA;
+const builtInPhrases = DATA.phrases;
+const categories = DATA.categories;
 
 const QUIZ_LINES = {
   win: [
@@ -963,12 +895,31 @@ const QUIZ_LINES = {
   ]
 };
 
+const ONBOARD_STEPS = [
+  {
+    title: "Talk like the crew",
+    body: "Browse Safety, Tools, HVAC, Plumbing, Scaffolding, Heavy Equip — phrases people actually yell on site."
+  },
+  {
+    title: "Hear real Spanish audio",
+    body: "Tap SAY / Hear for Mexican Spanish clips. Flip cards, Drill both ways, and star favorites."
+  },
+  {
+    title: "Review what sticks",
+    body: "Mark GOT IT, run Review for due phrases, and keep custom slang in More. Offline once installed."
+  }
+];
+
 let customPhrases = safeParse("customPhrases", []);
 let knownIds = new Set(safeParse("knownIds", []));
+let favoriteIds = new Set(safeParse("favoriteIds", []));
+let reviewMap = safeParse("reviewMap", {}); // id -> { due, interval, ease }
 let bestScore = Number(localStorage.getItem("bestScore") || 0);
 let streakBest = Number(localStorage.getItem("streakBest") || 0);
 let speechRate = Number(localStorage.getItem("speechRate") || 0.88);
-let quizDirection = localStorage.getItem("quizDirection") || "es-en"; // es-en | en-es
+let quizDirection = localStorage.getItem("quizDirection") || "es-en";
+let onboarded = localStorage.getItem("onboarded") === "1";
+let onboardStep = 0;
 
 let currentCat = "all";
 let currentView = "home";
@@ -976,15 +927,18 @@ let quizIndex = 0;
 let quizScore = 0;
 let quizStreak = 0;
 let quizQuestions = [];
+let quizMode = "mixed"; // mixed | review | favorites
 let cardDeck = [];
 let cardIndex = 0;
 let cardFlipped = false;
-let moreTab = "stats"; // stats | speak | customs
+let moreTab = "stats";
+let activeAudio = null;
 
 const main = document.getElementById("mainContent");
 const tabs = document.getElementById("categoryTabs");
 const searchEl = document.getElementById("search");
 const searchWrap = document.getElementById("searchWrap");
+const onboardEl = document.getElementById("onboard");
 
 function safeParse(key, fallback) {
   try {
@@ -996,13 +950,17 @@ function safeParse(key, fallback) {
 }
 
 function phraseId(p) {
-  return `${p.cat}::${p.es}::${p.en}`;
+  return p.id || `${p.cat}::${p.es}::${p.en}`;
 }
 
 function getAllPhrases() {
   return [
     ...builtInPhrases.map(p => ({ ...p, custom: false })),
-    ...customPhrases.map(p => ({ ...p, custom: true }))
+    ...customPhrases.map((p, i) => ({
+      ...p,
+      id: p.id || `custom-${i}-${(p.es || "").slice(0, 12)}`,
+      custom: true
+    }))
   ];
 }
 
@@ -1023,7 +981,15 @@ function toast(msg) {
   toast._t = setTimeout(() => el.classList.remove("show"), 1800);
 }
 
-function speak(text, lang = "es-MX") {
+function stopAudio() {
+  if (activeAudio) {
+    activeAudio.pause();
+    activeAudio = null;
+  }
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+}
+
+function speakTTS(text, lang = "es-MX") {
   if (!("speechSynthesis" in window)) {
     toast("Speech not supported on this device");
     return;
@@ -1033,6 +999,21 @@ function speak(text, lang = "es-MX") {
   u.rate = Math.min(1.4, Math.max(0.55, speechRate || 0.88));
   speechSynthesis.cancel();
   speechSynthesis.speak(u);
+}
+
+function speak(textOrPhrase, lang = "es-MX") {
+  stopAudio();
+  const p = typeof textOrPhrase === "object" ? textOrPhrase : null;
+  const text = p ? p.es : textOrPhrase;
+  const src = p && p.audio ? p.audio : null;
+  if (src && lang.startsWith("es")) {
+    const audio = new Audio(src);
+    audio.playbackRate = Math.min(1.35, Math.max(0.7, speechRate || 0.88));
+    activeAudio = audio;
+    audio.play().catch(() => speakTTS(text, lang));
+    return;
+  }
+  speakTTS(text, lang);
 }
 
 function shuffle(arr) {
@@ -1047,11 +1028,91 @@ function shuffle(arr) {
 function persistKnown() {
   localStorage.setItem("knownIds", JSON.stringify([...knownIds]));
 }
+function persistFavorites() {
+  localStorage.setItem("favoriteIds", JSON.stringify([...favoriteIds]));
+}
+function persistReview() {
+  localStorage.setItem("reviewMap", JSON.stringify(reviewMap));
+}
 
 function toggleKnown(id) {
   if (knownIds.has(id)) knownIds.delete(id);
   else knownIds.add(id);
   persistKnown();
+}
+
+function toggleFavorite(id) {
+  if (favoriteIds.has(id)) favoriteIds.delete(id);
+  else favoriteIds.add(id);
+  persistFavorites();
+}
+
+function duePhrases() {
+  const now = Date.now();
+  return getAllPhrases().filter(p => {
+    const r = reviewMap[phraseId(p)];
+    return r && r.due <= now;
+  });
+}
+
+function scheduleReview(id, grade) {
+  // grade: "again" | "good" | "easy"
+  const now = Date.now();
+  const cur = reviewMap[id] || { due: now, interval: 0, ease: 2.3 };
+  let interval = cur.interval || 0;
+  let ease = cur.ease || 2.3;
+  if (grade === "again") {
+    interval = 0;
+    ease = Math.max(1.3, ease - 0.2);
+    cur.due = now + 10 * 60 * 1000; // 10 min
+  } else if (grade === "good") {
+    interval = interval <= 0 ? 1 : Math.round(interval * ease);
+    ease = Math.min(2.8, ease + 0.05);
+    cur.due = now + interval * 24 * 60 * 60 * 1000;
+  } else {
+    interval = interval <= 0 ? 3 : Math.round(interval * ease * 1.3);
+    ease = Math.min(3.0, ease + 0.1);
+    cur.due = now + interval * 24 * 60 * 60 * 1000;
+  }
+  cur.interval = interval;
+  cur.ease = ease;
+  reviewMap[id] = cur;
+  persistReview();
+}
+
+function renderOnboard() {
+  if (onboarded) {
+    onboardEl.hidden = true;
+    return;
+  }
+  const step = ONBOARD_STEPS[onboardStep];
+  onboardEl.hidden = false;
+  onboardEl.innerHTML = `
+    <div class="onboard-card" role="dialog" aria-modal="true" aria-label="Welcome">
+      <div class="onboard-steps">${ONBOARD_STEPS.map((_, i) =>
+        `<span class="${i <= onboardStep ? "on" : ""}"></span>`
+      ).join("")}</div>
+      <h2>${escapeHtml(step.title)}</h2>
+      <p>${escapeHtml(step.body)}</p>
+      <div class="btn-row">
+        ${onboardStep > 0 ? `<button type="button" class="btn ghost" id="obBack">Back</button>` : `<button type="button" class="btn ghost" id="obSkip">Skip</button>`}
+        <button type="button" class="btn" id="obNext">${onboardStep === ONBOARD_STEPS.length - 1 ? "Let's go" : "Next"}</button>
+      </div>
+    </div>
+  `;
+  const finish = () => {
+    onboarded = true;
+    localStorage.setItem("onboarded", "1");
+    onboardEl.hidden = true;
+  };
+  const skip = document.getElementById("obSkip");
+  if (skip) skip.onclick = finish;
+  const back = document.getElementById("obBack");
+  if (back) back.onclick = () => { onboardStep--; renderOnboard(); };
+  document.getElementById("obNext").onclick = () => {
+    if (onboardStep >= ONBOARD_STEPS.length - 1) finish();
+    else { onboardStep++; renderOnboard(); }
+  };
 }
 
 function renderTabs() {
@@ -1076,15 +1137,20 @@ function renderTabs() {
 function phraseCard(p, i) {
   const id = phraseId(p);
   const known = knownIds.has(id);
+  const fav = favoriteIds.has(id);
+  const due = reviewMap[id] && reviewMap[id].due <= Date.now();
   const badges = [
     p.custom ? `<span class="badge mine">Mine</span>` : "",
+    fav ? `<span class="badge fav">★ Fav</span>` : "",
+    due ? `<span class="badge due">Due</span>` : "",
     i < 3 && currentCat === "all" ? `<span class="badge hot">Hot</span>` : ""
   ].join("");
   return `
     <article class="phrase ${known ? "known" : ""}" data-id="${escapeHtml(id)}" style="animation-delay:${Math.min(i, 8) * 0.04}s">
       <div class="es">${escapeHtml(p.es)}</div>
       <div class="actions">
-        <button type="button" class="icon-btn play" data-text="${escapeHtml(p.es)}" aria-label="Play Spanish">SAY</button>
+        <button type="button" class="icon-btn play" data-id="${escapeHtml(id)}" aria-label="Play Spanish">SAY</button>
+        <button type="button" class="icon-btn ghost fav ${fav ? "on" : ""}" data-id="${escapeHtml(id)}" aria-label="Favorite">${fav ? "★" : "☆"}</button>
         <button type="button" class="icon-btn ghost mark ${known ? "on" : ""}" data-id="${escapeHtml(id)}" aria-label="Mark known">${known ? "GOT" : "GOT?"}</button>
       </div>
       <div class="en">${escapeHtml(p.en)}</div>
@@ -1096,6 +1162,10 @@ function phraseCard(p, i) {
   `;
 }
 
+function findById(id) {
+  return getAllPhrases().find(p => phraseId(p) === id);
+}
+
 function attachPhraseHandlers(root = main) {
   root.querySelectorAll(".play").forEach(b => {
     b.onclick = (e) => {
@@ -1103,14 +1173,28 @@ function attachPhraseHandlers(root = main) {
       b.classList.remove("speak-pulse");
       void b.offsetWidth;
       b.classList.add("speak-pulse");
-      speak(b.dataset.text);
+      const p = findById(b.dataset.id);
+      if (p) speak(p);
+      else speak(b.dataset.text || "");
+    };
+  });
+  root.querySelectorAll(".fav").forEach(b => {
+    b.onclick = (e) => {
+      e.stopPropagation();
+      toggleFavorite(b.dataset.id);
+      toast(favoriteIds.has(b.dataset.id) ? "Starred" : "Unstarred");
+      if (currentView === "home") renderHome();
+      else renderProgress();
     };
   });
   root.querySelectorAll(".mark").forEach(b => {
     b.onclick = (e) => {
       e.stopPropagation();
-      toggleKnown(b.dataset.id);
-      toast(knownIds.has(b.dataset.id) ? "Marked as known" : "Unmarked");
+      const id = b.dataset.id;
+      const was = knownIds.has(id);
+      toggleKnown(id);
+      if (!was) scheduleReview(id, "good");
+      toast(knownIds.has(id) ? "Marked as known" : "Unmarked");
       if (currentView === "home") renderHome();
       else renderProgress();
     };
@@ -1121,6 +1205,8 @@ function filteredPhrases() {
   const all = getAllPhrases();
   let list = currentCat === "all" ? all
     : currentCat === "Custom" ? all.filter(p => p.custom)
+    : currentCat === "favorites" ? all.filter(p => favoriteIds.has(phraseId(p)))
+    : currentCat === "due" ? duePhrases()
     : all.filter(p => p.cat === currentCat);
   const q = searchEl.value.trim().toLowerCase();
   if (q) {
@@ -1139,10 +1225,16 @@ function renderHome() {
   const all = getAllPhrases();
   const results = filteredPhrases();
   const searching = searchEl.value.trim().length > 0;
+  const due = duePhrases();
+  const favs = all.filter(p => favoriteIds.has(phraseId(p)));
 
   if (currentCat === "all" && !searching) {
     const popular = all.slice(0, 8);
     main.innerHTML = `
+      <div class="quick-row">
+        <button type="button" class="btn" id="goReview">${due.length ? `Review ${due.length} due` : "Review (none due)"}</button>
+        <button type="button" class="btn steel" id="goFavs">★ Favorites (${favs.length})</button>
+      </div>
       <div class="cat-grid">
         ${categories.map(c => `
           <button type="button" class="cat-btn ${c.id === "Custom" ? "wide" : ""}" data-cat="${escapeHtml(c.id)}">
@@ -1154,15 +1246,30 @@ function renderHome() {
       </div>
       <div class="section-head">
         <h2>Start yelling these</h2>
-        <span>${all.length} phrases</span>
+        <span>${all.length} phrases · <span class="audio-pill">MX audio</span></span>
       </div>
       <div class="phrase-list">${popular.map((p, i) => phraseCard(p, i)).join("")}</div>
     `;
     main.querySelectorAll(".cat-btn").forEach(c => {
       c.onclick = () => { currentCat = c.dataset.cat; render(); };
     });
+    document.getElementById("goReview").onclick = () => {
+      currentView = "quiz";
+      quizMode = "review";
+      document.querySelectorAll(".nav-btn").forEach(x => x.classList.toggle("on", x.dataset.view === "quiz"));
+      startQuiz(true);
+    };
+    document.getElementById("goFavs").onclick = () => {
+      currentCat = "favorites";
+      render();
+    };
   } else {
-    const title = currentCat === "all" ? "Results" : (categories.find(c => c.id === currentCat)?.name || "Phrases");
+    const titleMap = {
+      all: "Results",
+      favorites: "Favorites",
+      due: "Due for review"
+    };
+    const title = titleMap[currentCat] || (categories.find(c => c.id === currentCat)?.name || "Phrases");
     main.innerHTML = `
       <div class="section-head">
         <h2>${escapeHtml(title)}</h2>
@@ -1178,9 +1285,14 @@ function renderHome() {
 
 function startCards(reshuffle = true) {
   searchWrap.style.display = "none";
-  const all = getAllPhrases();
+  let all = getAllPhrases();
+  if (quizMode === "favorites") all = all.filter(p => favoriteIds.has(phraseId(p)));
+  if (quizMode === "review") {
+    const due = duePhrases();
+    all = due.length ? due : all;
+  }
   if (!all.length) {
-    main.innerHTML = `<div class="empty"><h3>No phrases</h3><p>Add some slang first.</p></div>`;
+    main.innerHTML = `<div class="empty"><h3>No phrases</h3><p>Add some slang or star favorites first.</p></div>`;
     return;
   }
   if (reshuffle || !cardDeck.length) {
@@ -1194,11 +1306,13 @@ function startCards(reshuffle = true) {
 
 function showCard() {
   const p = cardDeck[cardIndex];
-  const known = knownIds.has(phraseId(p));
+  const id = phraseId(p);
+  const known = knownIds.has(id);
+  const fav = favoriteIds.has(id);
   main.innerHTML = `
     <div class="quiz-meta">
       <span>Card ${cardIndex + 1} / ${cardDeck.length}</span>
-      <span>${known ? "Known" : "Learning"}</span>
+      <span>${known ? "Known" : "Learning"}${fav ? " · ★" : ""}</span>
     </div>
     <div class="track"><i style="width:${((cardIndex) / cardDeck.length) * 100}%"></i></div>
     <div class="flip-stage">
@@ -1221,10 +1335,12 @@ function showCard() {
     </div>
     <div class="btn-row">
       <button type="button" class="btn ghost" id="prevCard">Back</button>
+      <button type="button" class="btn ghost" id="favCard">${fav ? "Unstar" : "★ Fav"}</button>
       <button type="button" class="btn ghost" id="markCard">${known ? "Unmark" : "Got it"}</button>
       <button type="button" class="btn" id="nextCard">Next</button>
     </div>
     <div class="btn-row">
+      <button type="button" class="btn ghost" id="againCard">Again (review)</button>
       <button type="button" class="btn ghost" id="shuffleCards">Shuffle deck</button>
     </div>
   `;
@@ -1237,7 +1353,7 @@ function showCard() {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); }
   };
   document.getElementById("flipBtn").onclick = flip;
-  document.getElementById("hearCard").onclick = () => speak(p.es);
+  document.getElementById("hearCard").onclick = () => speak(p);
   document.getElementById("prevCard").onclick = () => {
     cardIndex = (cardIndex - 1 + cardDeck.length) % cardDeck.length;
     cardFlipped = false;
@@ -1248,9 +1364,23 @@ function showCard() {
     cardFlipped = false;
     showCard();
   };
+  document.getElementById("favCard").onclick = () => {
+    toggleFavorite(id);
+    toast(favoriteIds.has(id) ? "Starred" : "Unstarred");
+    showCard();
+  };
   document.getElementById("markCard").onclick = () => {
-    toggleKnown(phraseId(p));
-    toast(knownIds.has(phraseId(p)) ? "Marked known" : "Unmarked");
+    const was = knownIds.has(id);
+    toggleKnown(id);
+    if (!was) scheduleReview(id, "good");
+    toast(knownIds.has(id) ? "Marked known" : "Unmarked");
+    showCard();
+  };
+  document.getElementById("againCard").onclick = () => {
+    scheduleReview(id, "again");
+    toast("Back in 10 min");
+    cardIndex = (cardIndex + 1) % cardDeck.length;
+    cardFlipped = false;
     showCard();
   };
   document.getElementById("shuffleCards").onclick = () => startCards(true);
@@ -1295,7 +1425,10 @@ function saveCustomPhrase() {
     status.className = "status bad";
     return;
   }
-  customPhrases.push({ cat, es, en, tip: tip || undefined });
+  customPhrases.push({
+    id: `custom-${Date.now()}`,
+    cat, es, en, tip: tip || undefined
+  });
   localStorage.setItem("customPhrases", JSON.stringify(customPhrases));
   status.textContent = "Locked in. It'll show up in Drill.";
   status.className = "status ok";
@@ -1305,49 +1438,13 @@ function saveCustomPhrase() {
   toast("Phrase saved");
 }
 
-function renderInterpreter() {
-  searchWrap.style.display = "none";
-  main.innerHTML = `
-    <div class="panel">
-      <h2>Speak it</h2>
-      <p class="lead">Type anything. Hear it. Save the keepers for Drill.</p>
-      <label for="interpText">Phrase</label>
-      <textarea id="interpText" placeholder="Type English or Spanish…"></textarea>
-      <div class="btn-row">
-        <button type="button" class="btn" id="speakEs">Speak Spanish</button>
-        <button type="button" class="btn steel" id="speakEn">Speak English</button>
-      </div>
-      <hr style="border:none;border-top:2px solid var(--line);margin:20px 0;">
-      <h2 style="font-size:1.5rem;">Keep it</h2>
-      <label for="interpEs">Spanish</label>
-      <input id="interpEs" type="text" placeholder="Spanish version">
-      <label for="interpEn">English</label>
-      <input id="interpEn" type="text" placeholder="English version">
-      <label for="interpCat">Category</label>
-      <select id="interpCat">
-        ${categories.filter(c => c.id !== "Custom").map(c =>
-          `<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)}</option>`
-        ).join("")}
-        <option value="Custom">My Phrases</option>
-      </select>
-      <div class="btn-row">
-        <button type="button" class="btn" id="saveInterp">Add to learning</button>
-      </div>
-      <p class="status" id="interpStatus"></p>
-    </div>
-  `;
-  document.getElementById("speakEs").onclick = () => speakInterp("es");
-  document.getElementById("speakEn").onclick = () => speakInterp("en");
-  document.getElementById("saveInterp").onclick = saveFromInterpreter;
-}
-
 function speakInterp(lang) {
   const text = document.getElementById("interpText").value.trim();
   if (!text) {
     toast("Type something first");
     return;
   }
-  speak(text, lang === "es" ? "es-MX" : "en-US");
+  speakTTS(text, lang === "es" ? "es-MX" : "en-US");
   if (lang === "es" && !document.getElementById("interpEs").value) {
     document.getElementById("interpEs").value = text;
   }
@@ -1366,7 +1463,7 @@ function saveFromInterpreter() {
     status.className = "status bad";
     return;
   }
-  customPhrases.push({ cat, es, en });
+  customPhrases.push({ id: `custom-${Date.now()}`, cat, es, en });
   localStorage.setItem("customPhrases", JSON.stringify(customPhrases));
   status.textContent = "Saved. Go crush Drill.";
   status.className = "status ok";
@@ -1375,9 +1472,15 @@ function saveFromInterpreter() {
 
 function startQuiz(fresh = true) {
   searchWrap.style.display = "none";
-  const all = getAllPhrases();
+  let all = getAllPhrases();
+  if (quizMode === "favorites") all = all.filter(p => favoriteIds.has(phraseId(p)));
+  if (quizMode === "review") {
+    const due = duePhrases();
+    all = due.length ? due : all.filter(p => !knownIds.has(phraseId(p))).slice(0, 20);
+    if (!all.length) all = getAllPhrases();
+  }
   if (all.length < 4) {
-    main.innerHTML = `<div class="empty"><h3>Need more phrases</h3><p>Add a few before running Drill.</p></div>`;
+    main.innerHTML = `<div class="empty"><h3>Need more phrases</h3><p>Add a few, star favorites, or wait for reviews to come due.</p></div>`;
     return;
   }
   if (fresh) {
@@ -1415,9 +1518,10 @@ function showQuestion() {
         </div>
       </div>
     `;
-    document.getElementById("retryQuiz").onclick = startQuiz;
+    document.getElementById("retryQuiz").onclick = () => startQuiz(true);
     document.getElementById("homeAfterQuiz").onclick = () => {
       currentView = "home";
+      quizMode = "mixed";
       document.querySelectorAll(".nav-btn").forEach(x => x.classList.toggle("on", x.dataset.view === "home"));
       render();
     };
@@ -1425,14 +1529,14 @@ function showQuestion() {
   }
 
   const q = quizQuestions[quizIndex];
-  const all = getAllPhrases();
+  const pool = getAllPhrases();
   const esToEn = quizDirection !== "en-es";
   const prompt = esToEn ? q.es : q.en;
   const answer = esToEn ? q.en : q.es;
   const options = [answer];
   let guard = 0;
   while (options.length < 4 && guard++ < 80) {
-    const randP = all[Math.floor(Math.random() * all.length)];
+    const randP = pool[Math.floor(Math.random() * pool.length)];
     const rand = esToEn ? randP.en : randP.es;
     if (!options.includes(rand)) options.push(rand);
   }
@@ -1440,7 +1544,12 @@ function showQuestion() {
 
   main.innerHTML = `
     <div class="panel">
-      <div class="mode-switch" role="group" aria-label="Drill direction">
+      <div class="mode-switch" role="group" aria-label="Drill mode">
+        <button type="button" class="${quizMode === "mixed" ? "on" : ""}" data-mode="mixed">All</button>
+        <button type="button" class="${quizMode === "review" ? "on" : ""}" data-mode="review">Review</button>
+        <button type="button" class="${quizMode === "favorites" ? "on" : ""}" data-mode="favorites">★ Favs</button>
+      </div>
+      <div class="mode-switch" role="group" aria-label="Drill direction" style="margin-top:8px;">
         <button type="button" class="${esToEn ? "on" : ""}" data-dir="es-en">ES → EN</button>
         <button type="button" class="${!esToEn ? "on" : ""}" data-dir="en-es">EN → ES</button>
       </div>
@@ -1461,18 +1570,25 @@ function showQuestion() {
       </div>
     </div>
   `;
-  document.querySelectorAll(".mode-switch button").forEach(b => {
+  document.querySelectorAll(".mode-switch button[data-mode]").forEach(b => {
+    b.onclick = () => {
+      quizMode = b.dataset.mode;
+      startQuiz(true);
+    };
+  });
+  document.querySelectorAll(".mode-switch button[data-dir]").forEach(b => {
     b.onclick = () => {
       quizDirection = b.dataset.dir;
       localStorage.setItem("quizDirection", quizDirection);
       showQuestion();
     };
   });
-  document.getElementById("hearQ").onclick = () => speak(q.es);
+  document.getElementById("hearQ").onclick = () => speak(q);
   document.querySelectorAll(".option").forEach(opt => {
     opt.onclick = () => {
       document.querySelectorAll(".option").forEach(o => { o.disabled = true; });
       const correct = opt.dataset.correct === "true";
+      const id = phraseId(q);
       if (correct) {
         opt.classList.add("correct");
         quizScore++;
@@ -1481,13 +1597,19 @@ function showQuestion() {
           streakBest = quizStreak;
           localStorage.setItem("streakBest", String(streakBest));
         }
+        scheduleReview(id, "good");
+        if (!knownIds.has(id)) {
+          knownIds.add(id);
+          persistKnown();
+        }
         toast(quizStreak >= 3 ? `Streak ${quizStreak} — on fire` : "Nice");
       } else {
         opt.classList.add("wrong");
         quizStreak = 0;
+        scheduleReview(id, "again");
         const right = document.querySelector('.option[data-correct="true"]');
         if (right) right.classList.add("correct");
-        toast("Nope — remember that one");
+        toast("Nope — back in review soon");
       }
       setTimeout(() => { quizIndex++; showQuestion(); }, 850);
     };
@@ -1501,6 +1623,8 @@ function renderProgress() {
   const total = getAllPhrases().length;
   const pct = Math.min(100, Math.round((known / Math.max(total, 1)) * 100));
   const offline = !navigator.onLine;
+  const due = duePhrases().length;
+  const favs = favoriteIds.size;
 
   main.innerHTML = `
     <div class="mode-switch" role="tablist">
@@ -1519,7 +1643,7 @@ function renderProgress() {
     panel.innerHTML = `
       <div class="panel">
         <h2>Speak it</h2>
-        <p class="lead">Type anything. Hear it. Save the keepers.</p>
+        <p class="lead">Type anything. Device TTS for freeform; built-in phrases use Mexican Spanish clips.</p>
         <label for="interpText">Phrase</label>
         <textarea id="interpText" placeholder="Type English or Spanish…"></textarea>
         <label>Speech speed</label>
@@ -1592,31 +1716,45 @@ function renderProgress() {
     <div class="panel">
       <h2>Your stats</h2>
       <p class="lead">
-        Known phrases stick. Custom slang counts in Flip + Drill.
+        Known + favorites + spaced review. Built-in phrases ship with MX audio.
         ${offline ? `<span class="offline-pill">Offline</span>` : `<span class="offline-pill" style="background:#fff;">Online ready</span>`}
       </p>
       <div class="stat-grid">
         <div class="stat"><b>${known}</b><span>Known</span></div>
-        <div class="stat"><b>${customCount}</b><span>Custom</span></div>
+        <div class="stat"><b>${favs}</b><span>Favorites</span></div>
+        <div class="stat"><b>${due}</b><span>Due</span></div>
         <div class="stat"><b>${bestScore}</b><span>Best drill</span></div>
         <div class="stat"><b>${streakBest}</b><span>Best streak</span></div>
+        <div class="stat"><b>${customCount}</b><span>Custom</span></div>
       </div>
       <div class="quiz-meta"><span>Banked · ${total} total</span><span>${pct}%</span></div>
       <div class="track"><i style="width:${pct}%"></i></div>
       <div class="btn-row">
         <button type="button" class="btn" id="goFlip">Flip cards</button>
         <button type="button" class="btn steel" id="goDrill">Start Drill</button>
+        <button type="button" class="btn ghost" id="goReviewMore">Review due</button>
+      </div>
+      <div class="btn-row">
         <button type="button" class="btn ghost" id="clearKnown">Reset known</button>
+        <button type="button" class="btn ghost" id="replayOnboard">Show tips</button>
       </div>
     </div>
   `;
   document.getElementById("goFlip").onclick = () => {
     currentView = "cards";
+    quizMode = "mixed";
     document.querySelectorAll(".nav-btn").forEach(x => x.classList.toggle("on", x.dataset.view === "cards"));
     startCards(true);
   };
   document.getElementById("goDrill").onclick = () => {
     currentView = "quiz";
+    quizMode = "mixed";
+    document.querySelectorAll(".nav-btn").forEach(x => x.classList.toggle("on", x.dataset.view === "quiz"));
+    startQuiz(true);
+  };
+  document.getElementById("goReviewMore").onclick = () => {
+    currentView = "quiz";
+    quizMode = "review";
     document.querySelectorAll(".nav-btn").forEach(x => x.classList.toggle("on", x.dataset.view === "quiz"));
     startQuiz(true);
   };
@@ -1626,6 +1764,12 @@ function renderProgress() {
     toast("Known list cleared");
     renderProgress();
   };
+  document.getElementById("replayOnboard").onclick = () => {
+    onboarded = false;
+    onboardStep = 0;
+    localStorage.removeItem("onboarded");
+    renderOnboard();
+  };
 }
 
 function render() {
@@ -1634,21 +1778,20 @@ function render() {
   else if (currentView === "cards") startCards(true);
   else if (currentView === "quiz") startQuiz(true);
   else if (currentView === "add") renderAdd();
-  else if (currentView === "interpreter") {
-    moreTab = "speak";
-    currentView = "progress";
-    document.querySelectorAll(".nav-btn").forEach(x => x.classList.toggle("on", x.dataset.view === "progress"));
-    renderProgress();
-  }
   else if (currentView === "progress") renderProgress();
 }
 
 document.querySelectorAll(".nav-btn").forEach(b => {
   b.onclick = () => {
+    stopAudio();
+    const toastEl = document.getElementById("toast");
+    toastEl.classList.remove("show");
+    clearTimeout(toast._t);
     document.querySelectorAll(".nav-btn").forEach(x => x.classList.remove("on"));
     b.classList.add("on");
     currentView = b.dataset.view;
     currentCat = "all";
+    if (currentView !== "quiz" && currentView !== "cards") quizMode = "mixed";
     searchEl.value = "";
     render();
   };
@@ -1659,12 +1802,14 @@ searchEl.oninput = () => {
 };
 
 render();
+renderOnboard();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js").catch(() => {});
   });
 }
+
 </script>
 </body>
 </html>

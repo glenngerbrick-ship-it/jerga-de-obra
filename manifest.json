@@ -2,7 +2,7 @@
   "name": "Jobsite Spanish",
   "short_name": "Jobsite ES",
   "description": "Real Spanish for construction and welding crews.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffd100",
@@ -19,5 +19,8 @@
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "scope": "./",
+  "lang": "en",
+  "orientation": "portrait-primary"
 }

@@ -132,7 +132,7 @@ EXTRA_CSS = """
   border: 6px solid #0a0a0a;
   box-shadow: 10px 10px 0 #ffd100;
   overflow: hidden;
-  background: #f5f5f5;
+  background: #0a0a0a;
   margin-bottom: 6.5%;
   flex-shrink: 0;
 }

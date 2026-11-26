@@ -87,6 +87,363 @@ window.JERGA_DATA = {
       "desc": "Your crew's worst hits"
     }
   ],
+  "images": {
+    "hard-hat": {
+      "src": "images/hard-hat.webp",
+      "altEn": "Hard hat",
+      "altEs": "Casco"
+    },
+    "safety-glasses": {
+      "src": "images/safety-glasses.webp",
+      "altEn": "Safety glasses",
+      "altEs": "Gafas de seguridad"
+    },
+    "harness": {
+      "src": "images/harness.webp",
+      "altEn": "Safety harness laid flat",
+      "altEs": "Arnés de seguridad"
+    },
+    "ppe": {
+      "src": "images/ppe.webp",
+      "altEn": "PPE kit: hat, glasses, gloves, and vest",
+      "altEs": "Equipo de protección personal"
+    },
+    "machine": {
+      "src": "images/machine.webp",
+      "altEn": "Generic jobsite machine",
+      "altEs": "Máquina de obra"
+    },
+    "hammer": {
+      "src": "images/hammer.webp",
+      "altEn": "Claw hammer",
+      "altEs": "Martillo de uña"
+    },
+    "drill": {
+      "src": "images/drill.webp",
+      "altEn": "Power drill",
+      "altEs": "Taladro"
+    },
+    "grinder": {
+      "src": "images/grinder.webp",
+      "altEn": "Angle grinder",
+      "altEs": "Amoladora"
+    },
+    "circular-saw": {
+      "src": "images/circular-saw.webp",
+      "altEn": "Circular saw",
+      "altEs": "Sierra circular"
+    },
+    "tape-measure": {
+      "src": "images/tape-measure.webp",
+      "altEn": "Tape measure",
+      "altEs": "Cinta métrica"
+    },
+    "level": {
+      "src": "images/level.webp",
+      "altEn": "Spirit level",
+      "altEs": "Nivel"
+    },
+    "ladder": {
+      "src": "images/ladder.webp",
+      "altEn": "Ladder",
+      "altEs": "Escalera"
+    },
+    "scaffold": {
+      "src": "images/scaffold.webp",
+      "altEn": "Scaffold frame",
+      "altEs": "Andamio"
+    },
+    "wrench": {
+      "src": "images/wrench.webp",
+      "altEn": "Adjustable wrench",
+      "altEs": "Llave inglesa"
+    },
+    "pliers": {
+      "src": "images/pliers.webp",
+      "altEn": "Pliers",
+      "altEs": "Alicates"
+    },
+    "screwdriver": {
+      "src": "images/screwdriver.webp",
+      "altEn": "Screwdriver",
+      "altEs": "Destornillador"
+    },
+    "shovel": {
+      "src": "images/shovel.webp",
+      "altEn": "Shovel",
+      "altEs": "Pala"
+    },
+    "wheelbarrow": {
+      "src": "images/wheelbarrow.webp",
+      "altEn": "Wheelbarrow",
+      "altEs": "Carretilla"
+    },
+    "toolbox": {
+      "src": "images/toolbox.webp",
+      "altEn": "Toolbox",
+      "altEs": "Caja de herramientas"
+    },
+    "extension-cord": {
+      "src": "images/extension-cord.webp",
+      "altEn": "Extension cord and plug",
+      "altEs": "Extensión eléctrica"
+    },
+    "cement": {
+      "src": "images/cement.webp",
+      "altEn": "Bag of cement",
+      "altEs": "Costal de cemento"
+    },
+    "concrete": {
+      "src": "images/concrete.webp",
+      "altEn": "Wet concrete",
+      "altEs": "Concreto fresco"
+    },
+    "brick": {
+      "src": "images/brick.webp",
+      "altEn": "Brick",
+      "altEs": "Ladrillo"
+    },
+    "rebar": {
+      "src": "images/rebar.webp",
+      "altEn": "Rebar grid",
+      "altEs": "Varilla"
+    },
+    "lumber": {
+      "src": "images/lumber.webp",
+      "altEn": "Stack of lumber",
+      "altEs": "Madera"
+    },
+    "steel": {
+      "src": "images/steel.webp",
+      "altEn": "Steel I-beam",
+      "altEs": "Viga de acero"
+    },
+    "sand": {
+      "src": "images/sand.webp",
+      "altEn": "Pile of sand",
+      "altEs": "Montón de arena"
+    },
+    "gravel": {
+      "src": "images/gravel.webp",
+      "altEn": "Pile of gravel",
+      "altEs": "Grava"
+    },
+    "plywood": {
+      "src": "images/plywood.webp",
+      "altEn": "Sheet of plywood",
+      "altEs": "Triplay"
+    },
+    "drywall": {
+      "src": "images/drywall.webp",
+      "altEn": "Sheet of drywall",
+      "altEs": "Tablaroca"
+    },
+    "mig-welder": {
+      "src": "images/mig-welder.webp",
+      "altEn": "MIG welder and gun",
+      "altEs": "Soldadora MIG"
+    },
+    "tig-welder": {
+      "src": "images/tig-welder.webp",
+      "altEn": "TIG welder and torch",
+      "altEs": "Soldadora TIG"
+    },
+    "stick-welder": {
+      "src": "images/stick-welder.webp",
+      "altEn": "Stick welder and electrode holder",
+      "altEs": "Soldadora de electrodo"
+    },
+    "welding-helmet": {
+      "src": "images/welding-helmet.webp",
+      "altEn": "Welding helmet",
+      "altEs": "Casco de soldar"
+    },
+    "welding-gloves": {
+      "src": "images/welding-gloves.webp",
+      "altEn": "Welding gloves",
+      "altEs": "Guantes de soldadura"
+    },
+    "electrode": {
+      "src": "images/electrode.webp",
+      "altEn": "Welding electrode",
+      "altEs": "Electrodo"
+    },
+    "welding-wire": {
+      "src": "images/welding-wire.webp",
+      "altEn": "Spool of welding wire",
+      "altEs": "Rollo de alambre"
+    },
+    "torch": {
+      "src": "images/torch.webp",
+      "altEn": "Welding torch",
+      "altEs": "Antorcha de soldar"
+    },
+    "gas-cylinder": {
+      "src": "images/gas-cylinder.webp",
+      "altEn": "Shielding-gas cylinder",
+      "altEs": "Cilindro de gas"
+    },
+    "slag": {
+      "src": "images/slag.webp",
+      "altEn": "Weld slag chips",
+      "altEs": "Escoria de soldadura"
+    },
+    "cable": {
+      "src": "images/cable.webp",
+      "altEn": "Electrical cable",
+      "altEs": "Cable"
+    },
+    "breaker": {
+      "src": "images/breaker.webp",
+      "altEn": "Circuit breaker",
+      "altEs": "Breaker"
+    },
+    "multimeter": {
+      "src": "images/multimeter.webp",
+      "altEn": "Multimeter with probes",
+      "altEs": "Multímetro"
+    },
+    "electrical-tape": {
+      "src": "images/electrical-tape.webp",
+      "altEn": "Roll of electrical tape",
+      "altEs": "Cinta aislante"
+    },
+    "lockout": {
+      "src": "images/lockout.webp",
+      "altEn": "Lockout padlock and tag",
+      "altEs": "Candado de bloqueo"
+    },
+    "slab": {
+      "src": "images/slab.webp",
+      "altEn": "Concrete slab",
+      "altEs": "Losa"
+    },
+    "formwork": {
+      "src": "images/formwork.webp",
+      "altEn": "Concrete formwork",
+      "altEs": "Cimbra"
+    },
+    "duct": {
+      "src": "images/duct.webp",
+      "altEn": "Air duct",
+      "altEs": "Ducto"
+    },
+    "condenser": {
+      "src": "images/condenser.webp",
+      "altEn": "Outdoor condenser unit",
+      "altEs": "Condensador"
+    },
+    "evaporator": {
+      "src": "images/evaporator.webp",
+      "altEn": "Evaporator coil",
+      "altEs": "Evaporador"
+    },
+    "thermostat": {
+      "src": "images/thermostat.webp",
+      "altEn": "Thermostat",
+      "altEs": "Termostato"
+    },
+    "refrigerant": {
+      "src": "images/refrigerant.webp",
+      "altEn": "Refrigerant cylinder",
+      "altEs": "Refrigerante"
+    },
+    "ac-unit": {
+      "src": "images/ac-unit.webp",
+      "altEn": "Air-conditioning unit",
+      "altEs": "Unidad de aire"
+    },
+    "air-filter": {
+      "src": "images/air-filter.webp",
+      "altEn": "Pleated air filter",
+      "altEs": "Filtro de aire"
+    },
+    "pipe": {
+      "src": "images/pipe.webp",
+      "altEn": "Pipe with a coupling",
+      "altEs": "Tubería"
+    },
+    "pvc": {
+      "src": "images/pvc.webp",
+      "altEn": "White PVC pipe elbow",
+      "altEs": "Tubo de PVC"
+    },
+    "copper": {
+      "src": "images/copper.webp",
+      "altEn": "Copper pipe elbow",
+      "altEs": "Tubo de cobre"
+    },
+    "shutoff": {
+      "src": "images/shutoff.webp",
+      "altEn": "Shutoff valve",
+      "altEs": "Llave de paso"
+    },
+    "water": {
+      "src": "images/water.webp",
+      "altEn": "Water",
+      "altEs": "Agua"
+    },
+    "drain": {
+      "src": "images/drain.webp",
+      "altEn": "Floor drain",
+      "altEs": "Drenaje"
+    },
+    "water-heater": {
+      "src": "images/water-heater.webp",
+      "altEn": "Water heater",
+      "altEs": "Calentador de agua"
+    },
+    "plank": {
+      "src": "images/plank.webp",
+      "altEn": "Scaffold plank",
+      "altEs": "Plataforma"
+    },
+    "guardrail": {
+      "src": "images/guardrail.webp",
+      "altEn": "Guardrail",
+      "altEs": "Barandal"
+    },
+    "caster": {
+      "src": "images/caster.webp",
+      "altEn": "Scaffold caster wheel",
+      "altEs": "Rueda de andamio"
+    },
+    "excavator": {
+      "src": "images/excavator.webp",
+      "altEn": "Excavator",
+      "altEs": "Excavadora"
+    },
+    "bulldozer": {
+      "src": "images/bulldozer.webp",
+      "altEn": "Bulldozer",
+      "altEs": "Buldócer"
+    },
+    "loader": {
+      "src": "images/loader.webp",
+      "altEn": "Front-end loader",
+      "altEs": "Cargadora"
+    },
+    "crane": {
+      "src": "images/crane.webp",
+      "altEn": "Crane and hook",
+      "altEs": "Grúa"
+    },
+    "forklift": {
+      "src": "images/forklift.webp",
+      "altEn": "Forklift",
+      "altEs": "Montacargas"
+    },
+    "dump-truck": {
+      "src": "images/dump-truck.webp",
+      "altEn": "Dump truck",
+      "altEs": "Camión de volteo"
+    },
+    "load": {
+      "src": "images/load.webp",
+      "altEn": "Strapped load on a pallet",
+      "altEs": "Carga"
+    }
+  },
   "phrases": [
     {
       "id": "safety-cuidado-000",
@@ -134,7 +491,8 @@ window.JERGA_DATA = {
       "es": "Ponte el casco.",
       "en": "Put on your hard hat.",
       "tip": "No hat, no work",
-      "audio": "audio/safety-ponte-el-casco-005.mp3"
+      "audio": "audio/safety-ponte-el-casco-005.mp3",
+      "img": "hard-hat"
     },
     {
       "id": "safety-usa-las-gafas-006",
@@ -142,7 +500,8 @@ window.JERGA_DATA = {
       "es": "Usa las gafas.",
       "en": "Wear your safety glasses.",
       "tip": "Short form crews use",
-      "audio": "audio/safety-usa-las-gafas-006.mp3"
+      "audio": "audio/safety-usa-las-gafas-006.mp3",
+      "img": "safety-glasses"
     },
     {
       "id": "safety-necesitas-el-arn-s-007",
@@ -150,7 +509,8 @@ window.JERGA_DATA = {
       "es": "Necesitas el arnés.",
       "en": "You need the harness.",
       "tip": "Fall protection",
-      "audio": "audio/safety-necesitas-el-arn-s-007.mp3"
+      "audio": "audio/safety-necesitas-el-arn-s-007.mp3",
+      "img": "harness"
     },
     {
       "id": "safety-el-arn-s-est-jodido-008",
@@ -158,7 +518,8 @@ window.JERGA_DATA = {
       "es": "El arnés está jodido.",
       "en": "The harness is wrecked.",
       "tip": "Report it — don't use it",
-      "audio": "audio/safety-el-arn-s-est-jodido-008.mp3"
+      "audio": "audio/safety-el-arn-s-est-jodido-008.mp3",
+      "img": "harness"
     },
     {
       "id": "safety-se-requiere-epp-siempre-009",
@@ -166,7 +527,8 @@ window.JERGA_DATA = {
       "es": "Se requiere EPP siempre.",
       "en": "PPE required at all times.",
       "tip": "Equipo de protección personal",
-      "audio": "audio/safety-se-requiere-epp-siempre-009.mp3"
+      "audio": "audio/safety-se-requiere-epp-siempre-009.mp3",
+      "img": "ppe"
     },
     {
       "id": "safety-al-jate-de-la-m-quina-010",
@@ -174,7 +536,8 @@ window.JERGA_DATA = {
       "es": "Aléjate de la máquina.",
       "en": "Get away from the machine.",
       "tip": "Equipment swing radius",
-      "audio": "audio/safety-al-jate-de-la-m-quina-010.mp3"
+      "audio": "audio/safety-al-jate-de-la-m-quina-010.mp3",
+      "img": "machine"
     },
     {
       "id": "safety-no-toques-eso-011",
@@ -246,7 +609,8 @@ window.JERGA_DATA = {
       "es": "el martillo",
       "en": "hammer",
       "tip": "Basic",
-      "audio": "audio/tools-el-martillo-019.mp3"
+      "audio": "audio/tools-el-martillo-019.mp3",
+      "img": "hammer"
     },
     {
       "id": "tools-el-taladro-020",
@@ -254,7 +618,8 @@ window.JERGA_DATA = {
       "es": "el taladro",
       "en": "drill",
       "tip": "Power tool",
-      "audio": "audio/tools-el-taladro-020.mp3"
+      "audio": "audio/tools-el-taladro-020.mp3",
+      "img": "drill"
     },
     {
       "id": "tools-la-amoladora-021",
@@ -262,7 +627,8 @@ window.JERGA_DATA = {
       "es": "la amoladora",
       "en": "angle grinder",
       "tip": "Sparks flying = this",
-      "audio": "audio/tools-la-amoladora-021.mp3"
+      "audio": "audio/tools-la-amoladora-021.mp3",
+      "img": "grinder"
     },
     {
       "id": "tools-la-sierra-circular-022",
@@ -270,7 +636,8 @@ window.JERGA_DATA = {
       "es": "la sierra circular",
       "en": "circular saw",
       "tip": "Cutting",
-      "audio": "audio/tools-la-sierra-circular-022.mp3"
+      "audio": "audio/tools-la-sierra-circular-022.mp3",
+      "img": "circular-saw"
     },
     {
       "id": "tools-la-cinta-m-trica-023",
@@ -278,7 +645,8 @@ window.JERGA_DATA = {
       "es": "la cinta métrica",
       "en": "tape measure",
       "tip": "Measure twice",
-      "audio": "audio/tools-la-cinta-m-trica-023.mp3"
+      "audio": "audio/tools-la-cinta-m-trica-023.mp3",
+      "img": "tape-measure"
     },
     {
       "id": "tools-el-nivel-024",
@@ -286,7 +654,8 @@ window.JERGA_DATA = {
       "es": "el nivel",
       "en": "level",
       "tip": "Is it plumb?",
-      "audio": "audio/tools-el-nivel-024.mp3"
+      "audio": "audio/tools-el-nivel-024.mp3",
+      "img": "level"
     },
     {
       "id": "tools-la-escalera-025",
@@ -294,7 +663,8 @@ window.JERGA_DATA = {
       "es": "la escalera",
       "en": "ladder",
       "tip": "3-point contact",
-      "audio": "audio/tools-la-escalera-025.mp3"
+      "audio": "audio/tools-la-escalera-025.mp3",
+      "img": "ladder"
     },
     {
       "id": "tools-el-andamio-026",
@@ -302,7 +672,8 @@ window.JERGA_DATA = {
       "es": "el andamio",
       "en": "scaffold",
       "tip": "Elevated work",
-      "audio": "audio/tools-el-andamio-026.mp3"
+      "audio": "audio/tools-el-andamio-026.mp3",
+      "img": "scaffold"
     },
     {
       "id": "tools-la-llave-inglesa-027",
@@ -310,7 +681,8 @@ window.JERGA_DATA = {
       "es": "la llave inglesa",
       "en": "adjustable wrench",
       "tip": "Also just 'la llave'",
-      "audio": "audio/tools-la-llave-inglesa-027.mp3"
+      "audio": "audio/tools-la-llave-inglesa-027.mp3",
+      "img": "wrench"
     },
     {
       "id": "tools-los-alicates-028",
@@ -318,7 +690,8 @@ window.JERGA_DATA = {
       "es": "los alicates",
       "en": "pliers",
       "tip": "Hand tool",
-      "audio": "audio/tools-los-alicates-028.mp3"
+      "audio": "audio/tools-los-alicates-028.mp3",
+      "img": "pliers"
     },
     {
       "id": "tools-el-destornillador-029",
@@ -326,7 +699,8 @@ window.JERGA_DATA = {
       "es": "el destornillador",
       "en": "screwdriver",
       "tip": "Also 'desarmador'",
-      "audio": "audio/tools-el-destornillador-029.mp3"
+      "audio": "audio/tools-el-destornillador-029.mp3",
+      "img": "screwdriver"
     },
     {
       "id": "tools-la-pala-030",
@@ -334,7 +708,8 @@ window.JERGA_DATA = {
       "es": "la pala",
       "en": "shovel",
       "tip": "Dig",
-      "audio": "audio/tools-la-pala-030.mp3"
+      "audio": "audio/tools-la-pala-030.mp3",
+      "img": "shovel"
     },
     {
       "id": "tools-la-carretilla-031",
@@ -342,7 +717,8 @@ window.JERGA_DATA = {
       "es": "la carretilla",
       "en": "wheelbarrow",
       "tip": "Haul materials",
-      "audio": "audio/tools-la-carretilla-031.mp3"
+      "audio": "audio/tools-la-carretilla-031.mp3",
+      "img": "wheelbarrow"
     },
     {
       "id": "tools-p-same-el-martillo-032",
@@ -350,7 +726,8 @@ window.JERGA_DATA = {
       "es": "Pásame el martillo.",
       "en": "Pass me the hammer.",
       "tip": "Most-used sentence on site",
-      "audio": "audio/tools-p-same-el-martillo-032.mp3"
+      "audio": "audio/tools-p-same-el-martillo-032.mp3",
+      "img": "hammer"
     },
     {
       "id": "tools-d-nde-est-el-taladro-033",
@@ -358,7 +735,8 @@ window.JERGA_DATA = {
       "es": "¿Dónde está el taladro?",
       "en": "Where's the drill?",
       "tip": "Finding tools",
-      "audio": "audio/tools-d-nde-est-el-taladro-033.mp3"
+      "audio": "audio/tools-d-nde-est-el-taladro-033.mp3",
+      "img": "drill"
     },
     {
       "id": "tools-trae-las-herramientas-034",
@@ -366,7 +744,8 @@ window.JERGA_DATA = {
       "es": "Trae las herramientas.",
       "en": "Bring the tools.",
       "tip": "Direct",
-      "audio": "audio/tools-trae-las-herramientas-034.mp3"
+      "audio": "audio/tools-trae-las-herramientas-034.mp3",
+      "img": "toolbox"
     },
     {
       "id": "tools-eso-est-chueco-035",
@@ -382,7 +761,8 @@ window.JERGA_DATA = {
       "es": "¿Tienes una extensión?",
       "en": "Got an extension cord?",
       "tip": "Power everywhere",
-      "audio": "audio/tools-tienes-una-extensi-n-036.mp3"
+      "audio": "audio/tools-tienes-una-extensi-n-036.mp3",
+      "img": "extension-cord"
     },
     {
       "id": "tools-est-bien-pinche-pesado-037",
@@ -398,7 +778,8 @@ window.JERGA_DATA = {
       "es": "el cemento",
       "en": "cement",
       "tip": "Bags",
-      "audio": "audio/materials-el-cemento-038.mp3"
+      "audio": "audio/materials-el-cemento-038.mp3",
+      "img": "cement"
     },
     {
       "id": "materials-el-concreto-039",
@@ -406,7 +787,8 @@ window.JERGA_DATA = {
       "es": "el concreto",
       "en": "concrete",
       "tip": "Also 'hormigón'",
-      "audio": "audio/materials-el-concreto-039.mp3"
+      "audio": "audio/materials-el-concreto-039.mp3",
+      "img": "concrete"
     },
     {
       "id": "materials-el-ladrillo-040",
@@ -414,7 +796,8 @@ window.JERGA_DATA = {
       "es": "el ladrillo",
       "en": "brick",
       "tip": "Masonry",
-      "audio": "audio/materials-el-ladrillo-040.mp3"
+      "audio": "audio/materials-el-ladrillo-040.mp3",
+      "img": "brick"
     },
     {
       "id": "materials-la-varilla-041",
@@ -422,7 +805,8 @@ window.JERGA_DATA = {
       "es": "la varilla",
       "en": "rebar",
       "tip": "Also 'acero de refuerzo'",
-      "audio": "audio/materials-la-varilla-041.mp3"
+      "audio": "audio/materials-la-varilla-041.mp3",
+      "img": "rebar"
     },
     {
       "id": "materials-la-madera-042",
@@ -430,7 +814,8 @@ window.JERGA_DATA = {
       "es": "la madera",
       "en": "wood / lumber",
       "tip": "Framing",
-      "audio": "audio/materials-la-madera-042.mp3"
+      "audio": "audio/materials-la-madera-042.mp3",
+      "img": "lumber"
     },
     {
       "id": "materials-el-acero-043",
@@ -438,7 +823,8 @@ window.JERGA_DATA = {
       "es": "el acero",
       "en": "steel",
       "tip": "Structural",
-      "audio": "audio/materials-el-acero-043.mp3"
+      "audio": "audio/materials-el-acero-043.mp3",
+      "img": "steel"
     },
     {
       "id": "materials-la-arena-044",
@@ -446,7 +832,8 @@ window.JERGA_DATA = {
       "es": "la arena",
       "en": "sand",
       "tip": "Mix",
-      "audio": "audio/materials-la-arena-044.mp3"
+      "audio": "audio/materials-la-arena-044.mp3",
+      "img": "sand"
     },
     {
       "id": "materials-la-grava-045",
@@ -454,7 +841,8 @@ window.JERGA_DATA = {
       "es": "la grava",
       "en": "gravel",
       "tip": "Aggregate",
-      "audio": "audio/materials-la-grava-045.mp3"
+      "audio": "audio/materials-la-grava-045.mp3",
+      "img": "gravel"
     },
     {
       "id": "materials-el-triplay-046",
@@ -462,7 +850,8 @@ window.JERGA_DATA = {
       "es": "el triplay",
       "en": "plywood",
       "tip": "Sheets — common word on site",
-      "audio": "audio/materials-el-triplay-046.mp3"
+      "audio": "audio/materials-el-triplay-046.mp3",
+      "img": "plywood"
     },
     {
       "id": "materials-la-tablaroca-047",
@@ -470,7 +859,8 @@ window.JERGA_DATA = {
       "es": "la tablaroca",
       "en": "drywall",
       "tip": "Also just 'drywall'",
-      "audio": "audio/materials-la-tablaroca-047.mp3"
+      "audio": "audio/materials-la-tablaroca-047.mp3",
+      "img": "drywall"
     },
     {
       "id": "materials-necesitamos-m-s-cemento-048",
@@ -478,7 +868,8 @@ window.JERGA_DATA = {
       "es": "Necesitamos más cemento.",
       "en": "We need more cement.",
       "tip": "Ordering",
-      "audio": "audio/materials-necesitamos-m-s-cemento-048.mp3"
+      "audio": "audio/materials-necesitamos-m-s-cemento-048.mp3",
+      "img": "cement"
     },
     {
       "id": "materials-d-nde-est-la-varilla-049",
@@ -486,7 +877,8 @@ window.JERGA_DATA = {
       "es": "¿Dónde está la varilla?",
       "en": "Where's the rebar?",
       "tip": "Locate",
-      "audio": "audio/materials-d-nde-est-la-varilla-049.mp3"
+      "audio": "audio/materials-d-nde-est-la-varilla-049.mp3",
+      "img": "rebar"
     },
     {
       "id": "materials-deja-la-madera-aqu-050",
@@ -494,7 +886,8 @@ window.JERGA_DATA = {
       "es": "Deja la madera aquí.",
       "en": "Leave the wood here.",
       "tip": "Staging",
-      "audio": "audio/materials-deja-la-madera-aqu-050.mp3"
+      "audio": "audio/materials-deja-la-madera-aqu-050.mp3",
+      "img": "lumber"
     },
     {
       "id": "materials-eso-est-muy-pesado-051",
@@ -510,7 +903,8 @@ window.JERGA_DATA = {
       "es": "la soldadora MIG",
       "en": "MIG welder",
       "tip": "GMAW",
-      "audio": "audio/welding-la-soldadora-mig-052.mp3"
+      "audio": "audio/welding-la-soldadora-mig-052.mp3",
+      "img": "mig-welder"
     },
     {
       "id": "welding-la-soldadora-tig-053",
@@ -518,7 +912,8 @@ window.JERGA_DATA = {
       "es": "la soldadora TIG",
       "en": "TIG welder",
       "tip": "GTAW",
-      "audio": "audio/welding-la-soldadora-tig-053.mp3"
+      "audio": "audio/welding-la-soldadora-tig-053.mp3",
+      "img": "tig-welder"
     },
     {
       "id": "welding-soldadura-de-electrodo-054",
@@ -526,7 +921,8 @@ window.JERGA_DATA = {
       "es": "soldadura de electrodo",
       "en": "stick welding",
       "tip": "SMAW — also 'stick'",
-      "audio": "audio/welding-soldadura-de-electrodo-054.mp3"
+      "audio": "audio/welding-soldadura-de-electrodo-054.mp3",
+      "img": "stick-welder"
     },
     {
       "id": "welding-el-casco-de-soldar-055",
@@ -534,7 +930,8 @@ window.JERGA_DATA = {
       "es": "el casco de soldar",
       "en": "welding helmet",
       "tip": "No helmet, no arc",
-      "audio": "audio/welding-el-casco-de-soldar-055.mp3"
+      "audio": "audio/welding-el-casco-de-soldar-055.mp3",
+      "img": "welding-helmet"
     },
     {
       "id": "welding-los-guantes-de-soldadura-056",
@@ -542,7 +939,8 @@ window.JERGA_DATA = {
       "es": "los guantes de soldadura",
       "en": "welding gloves",
       "tip": "Heat",
-      "audio": "audio/welding-los-guantes-de-soldadura-056.mp3"
+      "audio": "audio/welding-los-guantes-de-soldadura-056.mp3",
+      "img": "welding-gloves"
     },
     {
       "id": "welding-el-electrodo-057",
@@ -550,7 +948,8 @@ window.JERGA_DATA = {
       "es": "el electrodo",
       "en": "electrode / rod",
       "tip": "Consumable",
-      "audio": "audio/welding-el-electrodo-057.mp3"
+      "audio": "audio/welding-el-electrodo-057.mp3",
+      "img": "electrode"
     },
     {
       "id": "welding-el-alambre-058",
@@ -558,7 +957,8 @@ window.JERGA_DATA = {
       "es": "el alambre",
       "en": "welding wire",
       "tip": "MIG/TIG filler",
-      "audio": "audio/welding-el-alambre-058.mp3"
+      "audio": "audio/welding-el-alambre-058.mp3",
+      "img": "welding-wire"
     },
     {
       "id": "welding-la-antorcha-059",
@@ -566,7 +966,8 @@ window.JERGA_DATA = {
       "es": "la antorcha",
       "en": "torch / gun",
       "tip": "Welding torch",
-      "audio": "audio/welding-la-antorcha-059.mp3"
+      "audio": "audio/welding-la-antorcha-059.mp3",
+      "img": "torch"
     },
     {
       "id": "welding-el-gas-de-protecci-n-060",
@@ -574,7 +975,8 @@ window.JERGA_DATA = {
       "es": "el gas de protección",
       "en": "shielding gas",
       "tip": "Argon, CO2…",
-      "audio": "audio/welding-el-gas-de-protecci-n-060.mp3"
+      "audio": "audio/welding-el-gas-de-protecci-n-060.mp3",
+      "img": "gas-cylinder"
     },
     {
       "id": "welding-soldadura-de-filete-061",
@@ -614,7 +1016,8 @@ window.JERGA_DATA = {
       "es": "Limpia la escoria.",
       "en": "Chip the slag.",
       "tip": "Post-weld",
-      "audio": "audio/welding-limpia-la-escoria-065.mp3"
+      "audio": "audio/welding-limpia-la-escoria-065.mp3",
+      "img": "slag"
     },
     {
       "id": "welding-el-arco-est-inestable-066",
@@ -630,7 +1033,8 @@ window.JERGA_DATA = {
       "es": "Usa el casco.",
       "en": "Use the helmet.",
       "tip": "Flash burn is not a flex",
-      "audio": "audio/welding-usa-el-casco-067.mp3"
+      "audio": "audio/welding-usa-el-casco-067.mp3",
+      "img": "welding-helmet"
     },
     {
       "id": "welding-ventila-el-rea-068",
@@ -654,7 +1058,8 @@ window.JERGA_DATA = {
       "es": "¿Necesitas más electrodos?",
       "en": "Need more rods?",
       "tip": "Supply",
-      "audio": "audio/welding-necesitas-m-s-electrodos-070.mp3"
+      "audio": "audio/welding-necesitas-m-s-electrodos-070.mp3",
+      "img": "electrode"
     },
     {
       "id": "welding-no-mires-el-arco-071",
@@ -670,7 +1075,8 @@ window.JERGA_DATA = {
       "es": "el cable",
       "en": "wire / cable",
       "tip": "Say the gauge if it matters",
-      "audio": "audio/electrical-el-cable-072.mp3"
+      "audio": "audio/electrical-el-cable-072.mp3",
+      "img": "cable"
     },
     {
       "id": "electrical-el-breaker-073",
@@ -678,7 +1084,8 @@ window.JERGA_DATA = {
       "es": "el breaker",
       "en": "circuit breaker",
       "tip": "Everyone just says 'breaker'",
-      "audio": "audio/electrical-el-breaker-073.mp3"
+      "audio": "audio/electrical-el-breaker-073.mp3",
+      "img": "breaker"
     },
     {
       "id": "electrical-apaga-el-breaker-074",
@@ -686,7 +1093,8 @@ window.JERGA_DATA = {
       "es": "Apaga el breaker.",
       "en": "Kill the breaker.",
       "tip": "Before you touch anything",
-      "audio": "audio/electrical-apaga-el-breaker-074.mp3"
+      "audio": "audio/electrical-apaga-el-breaker-074.mp3",
+      "img": "breaker"
     },
     {
       "id": "electrical-est-energizado-075",
@@ -710,7 +1118,8 @@ window.JERGA_DATA = {
       "es": "el multímetro",
       "en": "multimeter",
       "tip": "Testing",
-      "audio": "audio/electrical-el-mult-metro-077.mp3"
+      "audio": "audio/electrical-el-mult-metro-077.mp3",
+      "img": "multimeter"
     },
     {
       "id": "electrical-la-cinta-aislante-078",
@@ -718,7 +1127,8 @@ window.JERGA_DATA = {
       "es": "la cinta aislante",
       "en": "electrical tape",
       "tip": "Insulation",
-      "audio": "audio/electrical-la-cinta-aislante-078.mp3"
+      "audio": "audio/electrical-la-cinta-aislante-078.mp3",
+      "img": "electrical-tape"
     },
     {
       "id": "electrical-no-toques-el-cable-079",
@@ -726,7 +1136,8 @@ window.JERGA_DATA = {
       "es": "No toques el cable.",
       "en": "Don't touch the wire.",
       "tip": "Safety",
-      "audio": "audio/electrical-no-toques-el-cable-079.mp3"
+      "audio": "audio/electrical-no-toques-el-cable-079.mp3",
+      "img": "cable"
     },
     {
       "id": "electrical-bloqueo-y-etiquetado-080",
@@ -734,7 +1145,8 @@ window.JERGA_DATA = {
       "es": "Bloqueo y etiquetado.",
       "en": "Lockout / tagout.",
       "tip": "LOTO — non-negotiable",
-      "audio": "audio/electrical-bloqueo-y-etiquetado-080.mp3"
+      "audio": "audio/electrical-bloqueo-y-etiquetado-080.mp3",
+      "img": "lockout"
     },
     {
       "id": "electrical-se-fue-la-luz-081",
@@ -750,7 +1162,8 @@ window.JERGA_DATA = {
       "es": "el colado",
       "en": "the pour",
       "tip": "Big day language",
-      "audio": "audio/concrete-el-colado-082.mp3"
+      "audio": "audio/concrete-el-colado-082.mp3",
+      "img": "concrete"
     },
     {
       "id": "concrete-la-losa-083",
@@ -758,7 +1171,8 @@ window.JERGA_DATA = {
       "es": "la losa",
       "en": "the slab",
       "tip": "Floor / deck",
-      "audio": "audio/concrete-la-losa-083.mp3"
+      "audio": "audio/concrete-la-losa-083.mp3",
+      "img": "slab"
     },
     {
       "id": "concrete-la-cimbra-084",
@@ -766,7 +1180,8 @@ window.JERGA_DATA = {
       "es": "la cimbra",
       "en": "formwork",
       "tip": "Also 'encofrado'",
-      "audio": "audio/concrete-la-cimbra-084.mp3"
+      "audio": "audio/concrete-la-cimbra-084.mp3",
+      "img": "formwork"
     },
     {
       "id": "concrete-mezcla-el-concreto-085",
@@ -774,7 +1189,8 @@ window.JERGA_DATA = {
       "es": "Mezcla el concreto.",
       "en": "Mix the concrete.",
       "tip": "Prep",
-      "audio": "audio/concrete-mezcla-el-concreto-085.mp3"
+      "audio": "audio/concrete-mezcla-el-concreto-085.mp3",
+      "img": "concrete"
     },
     {
       "id": "concrete-la-losa-est-lista-086",
@@ -782,7 +1198,8 @@ window.JERGA_DATA = {
       "es": "La losa está lista.",
       "en": "The slab's ready.",
       "tip": "Status",
-      "audio": "audio/concrete-la-losa-est-lista-086.mp3"
+      "audio": "audio/concrete-la-losa-est-lista-086.mp3",
+      "img": "slab"
     },
     {
       "id": "concrete-necesitamos-m-s-varilla-087",
@@ -790,7 +1207,8 @@ window.JERGA_DATA = {
       "es": "Necesitamos más varilla.",
       "en": "We need more rebar.",
       "tip": "Materials",
-      "audio": "audio/concrete-necesitamos-m-s-varilla-087.mp3"
+      "audio": "audio/concrete-necesitamos-m-s-varilla-087.mp3",
+      "img": "rebar"
     },
     {
       "id": "concrete-nivela-el-concreto-088",
@@ -798,7 +1216,8 @@ window.JERGA_DATA = {
       "es": "Nivela el concreto.",
       "en": "Level the concrete.",
       "tip": "Finish",
-      "audio": "audio/concrete-nivela-el-concreto-088.mp3"
+      "audio": "audio/concrete-nivela-el-concreto-088.mp3",
+      "img": "concrete"
     },
     {
       "id": "concrete-no-camines-en-el-fresco-089",
@@ -806,7 +1225,8 @@ window.JERGA_DATA = {
       "es": "No camines en el fresco.",
       "en": "Don't walk on the fresh pour.",
       "tip": "You'll hear about it if you do",
-      "audio": "audio/concrete-no-camines-en-el-fresco-089.mp3"
+      "audio": "audio/concrete-no-camines-en-el-fresco-089.mp3",
+      "img": "concrete"
     },
     {
       "id": "commands-m-s-r-pido-090",
@@ -1094,7 +1514,8 @@ window.JERGA_DATA = {
       "es": "el ducto",
       "en": "duct",
       "tip": "Air path",
-      "audio": "audio/hvac-el-ducto-125.mp3"
+      "audio": "audio/hvac-el-ducto-125.mp3",
+      "img": "duct"
     },
     {
       "id": "hvac-el-condensador-126",
@@ -1102,7 +1523,8 @@ window.JERGA_DATA = {
       "es": "el condensador",
       "en": "condenser unit",
       "tip": "Outside box",
-      "audio": "audio/hvac-el-condensador-126.mp3"
+      "audio": "audio/hvac-el-condensador-126.mp3",
+      "img": "condenser"
     },
     {
       "id": "hvac-el-evaporador-127",
@@ -1110,7 +1532,8 @@ window.JERGA_DATA = {
       "es": "el evaporador",
       "en": "evaporator coil",
       "tip": "Inside coil",
-      "audio": "audio/hvac-el-evaporador-127.mp3"
+      "audio": "audio/hvac-el-evaporador-127.mp3",
+      "img": "evaporator"
     },
     {
       "id": "hvac-el-termostato-128",
@@ -1118,7 +1541,8 @@ window.JERGA_DATA = {
       "es": "el termostato",
       "en": "thermostat",
       "tip": "Set point",
-      "audio": "audio/hvac-el-termostato-128.mp3"
+      "audio": "audio/hvac-el-termostato-128.mp3",
+      "img": "thermostat"
     },
     {
       "id": "hvac-el-refrigerante-129",
@@ -1126,7 +1550,8 @@ window.JERGA_DATA = {
       "es": "el refrigerante",
       "en": "refrigerant",
       "tip": "Don't vent it",
-      "audio": "audio/hvac-el-refrigerante-129.mp3"
+      "audio": "audio/hvac-el-refrigerante-129.mp3",
+      "img": "refrigerant"
     },
     {
       "id": "hvac-la-unidad-de-aire-130",
@@ -1134,7 +1559,8 @@ window.JERGA_DATA = {
       "es": "la unidad de aire",
       "en": "AC unit",
       "tip": "Package / split",
-      "audio": "audio/hvac-la-unidad-de-aire-130.mp3"
+      "audio": "audio/hvac-la-unidad-de-aire-130.mp3",
+      "img": "ac-unit"
     },
     {
       "id": "hvac-apaga-la-unidad-131",
@@ -1142,7 +1568,8 @@ window.JERGA_DATA = {
       "es": "Apaga la unidad.",
       "en": "Shut the unit off.",
       "tip": "Before opening panels",
-      "audio": "audio/hvac-apaga-la-unidad-131.mp3"
+      "audio": "audio/hvac-apaga-la-unidad-131.mp3",
+      "img": "ac-unit"
     },
     {
       "id": "hvac-hay-una-fuga-de-gas-132",
@@ -1158,7 +1585,8 @@ window.JERGA_DATA = {
       "es": "Cambia el filtro.",
       "en": "Change the filter.",
       "tip": "Maintenance",
-      "audio": "audio/hvac-cambia-el-filtro-133.mp3"
+      "audio": "audio/hvac-cambia-el-filtro-133.mp3",
+      "img": "air-filter"
     },
     {
       "id": "hvac-el-ducto-est-tapado-134",
@@ -1166,7 +1594,8 @@ window.JERGA_DATA = {
       "es": "El ducto está tapado.",
       "en": "The duct is blocked.",
       "tip": "Airflow issue",
-      "audio": "audio/hvac-el-ducto-est-tapado-134.mp3"
+      "audio": "audio/hvac-el-ducto-est-tapado-134.mp3",
+      "img": "duct"
     },
     {
       "id": "hvac-revisa-la-presi-n-135",
@@ -1190,7 +1619,8 @@ window.JERGA_DATA = {
       "es": "la tubería",
       "en": "pipe / piping",
       "tip": "Supply or drain",
-      "audio": "audio/plumbing-la-tuber-a-137.mp3"
+      "audio": "audio/plumbing-la-tuber-a-137.mp3",
+      "img": "pipe"
     },
     {
       "id": "plumbing-el-pvc-138",
@@ -1198,7 +1628,8 @@ window.JERGA_DATA = {
       "es": "el PVC",
       "en": "PVC",
       "tip": "Plastic pipe",
-      "audio": "audio/plumbing-el-pvc-138.mp3"
+      "audio": "audio/plumbing-el-pvc-138.mp3",
+      "img": "pvc"
     },
     {
       "id": "plumbing-el-cobre-139",
@@ -1206,7 +1637,8 @@ window.JERGA_DATA = {
       "es": "el cobre",
       "en": "copper",
       "tip": "Sweat joints",
-      "audio": "audio/plumbing-el-cobre-139.mp3"
+      "audio": "audio/plumbing-el-cobre-139.mp3",
+      "img": "copper"
     },
     {
       "id": "plumbing-la-llave-de-paso-140",
@@ -1214,7 +1646,8 @@ window.JERGA_DATA = {
       "es": "la llave de paso",
       "en": "shutoff valve",
       "tip": "Kill the water",
-      "audio": "audio/plumbing-la-llave-de-paso-140.mp3"
+      "audio": "audio/plumbing-la-llave-de-paso-140.mp3",
+      "img": "shutoff"
     },
     {
       "id": "plumbing-cierra-el-agua-141",
@@ -1222,7 +1655,8 @@ window.JERGA_DATA = {
       "es": "Cierra el agua.",
       "en": "Shut the water off.",
       "tip": "Before you cut",
-      "audio": "audio/plumbing-cierra-el-agua-141.mp3"
+      "audio": "audio/plumbing-cierra-el-agua-141.mp3",
+      "img": "water"
     },
     {
       "id": "plumbing-hay-un-chorro-142",
@@ -1238,7 +1672,8 @@ window.JERGA_DATA = {
       "es": "el drenaje",
       "en": "drain",
       "tip": "Waste line",
-      "audio": "audio/plumbing-el-drenaje-143.mp3"
+      "audio": "audio/plumbing-el-drenaje-143.mp3",
+      "img": "drain"
     },
     {
       "id": "plumbing-est-tapado-144",
@@ -1254,7 +1689,8 @@ window.JERGA_DATA = {
       "es": "el calentador",
       "en": "water heater",
       "tip": "Tank or tankless",
-      "audio": "audio/plumbing-el-calentador-145.mp3"
+      "audio": "audio/plumbing-el-calentador-145.mp3",
+      "img": "water-heater"
     },
     {
       "id": "plumbing-suelda-el-cobre-146",
@@ -1262,7 +1698,8 @@ window.JERGA_DATA = {
       "es": "Suelda el cobre.",
       "en": "Sweat the copper.",
       "tip": "Torch work",
-      "audio": "audio/plumbing-suelda-el-cobre-146.mp3"
+      "audio": "audio/plumbing-suelda-el-cobre-146.mp3",
+      "img": "copper"
     },
     {
       "id": "plumbing-pega-el-pvc-147",
@@ -1270,7 +1707,8 @@ window.JERGA_DATA = {
       "es": "Pega el PVC.",
       "en": "Glue the PVC.",
       "tip": "Primer then cement",
-      "audio": "audio/plumbing-pega-el-pvc-147.mp3"
+      "audio": "audio/plumbing-pega-el-pvc-147.mp3",
+      "img": "pvc"
     },
     {
       "id": "plumbing-d-nde-est-la-llave-principal-148",
@@ -1278,7 +1716,8 @@ window.JERGA_DATA = {
       "es": "¿Dónde está la llave principal?",
       "en": "Where's the main shutoff?",
       "tip": "Find it day one",
-      "audio": "audio/plumbing-d-nde-est-la-llave-principal-148.mp3"
+      "audio": "audio/plumbing-d-nde-est-la-llave-principal-148.mp3",
+      "img": "shutoff"
     },
     {
       "id": "scaffolding-arma-el-andamio-149",
@@ -1286,7 +1725,8 @@ window.JERGA_DATA = {
       "es": "arma el andamio",
       "en": "build / erect the scaffold",
       "tip": "Base plates first",
-      "audio": "audio/scaffolding-arma-el-andamio-149.mp3"
+      "audio": "audio/scaffolding-arma-el-andamio-149.mp3",
+      "img": "scaffold"
     },
     {
       "id": "scaffolding-la-plataforma-150",
@@ -1294,7 +1734,8 @@ window.JERGA_DATA = {
       "es": "la plataforma",
       "en": "platform / plank",
       "tip": "Fully decked",
-      "audio": "audio/scaffolding-la-plataforma-150.mp3"
+      "audio": "audio/scaffolding-la-plataforma-150.mp3",
+      "img": "plank"
     },
     {
       "id": "scaffolding-el-barandal-151",
@@ -1302,7 +1743,8 @@ window.JERGA_DATA = {
       "es": "el barandal",
       "en": "guardrail",
       "tip": "Fall protection",
-      "audio": "audio/scaffolding-el-barandal-151.mp3"
+      "audio": "audio/scaffolding-el-barandal-151.mp3",
+      "img": "guardrail"
     },
     {
       "id": "scaffolding-la-rueda-152",
@@ -1310,7 +1752,8 @@ window.JERGA_DATA = {
       "es": "la rueda",
       "en": "caster / wheel",
       "tip": "Lock before climbing",
-      "audio": "audio/scaffolding-la-rueda-152.mp3"
+      "audio": "audio/scaffolding-la-rueda-152.mp3",
+      "img": "caster"
     },
     {
       "id": "scaffolding-traba-las-ruedas-153",
@@ -1318,7 +1761,8 @@ window.JERGA_DATA = {
       "es": "Traba las ruedas.",
       "en": "Lock the casters.",
       "tip": "Non-negotiable",
-      "audio": "audio/scaffolding-traba-las-ruedas-153.mp3"
+      "audio": "audio/scaffolding-traba-las-ruedas-153.mp3",
+      "img": "caster"
     },
     {
       "id": "scaffolding-no-sobrecargues-el-andamio-154",
@@ -1326,7 +1770,8 @@ window.JERGA_DATA = {
       "es": "No sobrecargues el andamio.",
       "en": "Don't overload the scaffold.",
       "tip": "Weight limits",
-      "audio": "audio/scaffolding-no-sobrecargues-el-andamio-154.mp3"
+      "audio": "audio/scaffolding-no-sobrecargues-el-andamio-154.mp3",
+      "img": "scaffold"
     },
     {
       "id": "scaffolding-inspecciona-antes-de-subir-155",
@@ -1342,7 +1787,8 @@ window.JERGA_DATA = {
       "es": "usa el arnés en altura",
       "en": "use the harness at height",
       "tip": "Tie off",
-      "audio": "audio/scaffolding-usa-el-arn-s-en-altura-156.mp3"
+      "audio": "audio/scaffolding-usa-el-arn-s-en-altura-156.mp3",
+      "img": "harness"
     },
     {
       "id": "scaffolding-baja-despacio-157",
@@ -1358,7 +1804,8 @@ window.JERGA_DATA = {
       "es": "el nivel del andamio",
       "en": "scaffold level / bay",
       "tip": "Plumb and level",
-      "audio": "audio/scaffolding-el-nivel-del-andamio-158.mp3"
+      "audio": "audio/scaffolding-el-nivel-del-andamio-158.mp3",
+      "img": "scaffold"
     },
     {
       "id": "scaffolding-est-flojo-159",
@@ -1382,7 +1829,8 @@ window.JERGA_DATA = {
       "es": "la excavadora",
       "en": "excavator",
       "tip": "Digging machine",
-      "audio": "audio/heavy-la-excavadora-161.mp3"
+      "audio": "audio/heavy-la-excavadora-161.mp3",
+      "img": "excavator"
     },
     {
       "id": "heavy-el-buld-cer-162",
@@ -1390,7 +1838,8 @@ window.JERGA_DATA = {
       "es": "el buldócer",
       "en": "bulldozer",
       "tip": "Push dirt",
-      "audio": "audio/heavy-el-buld-cer-162.mp3"
+      "audio": "audio/heavy-el-buld-cer-162.mp3",
+      "img": "bulldozer"
     },
     {
       "id": "heavy-la-cargadora-163",
@@ -1398,7 +1847,8 @@ window.JERGA_DATA = {
       "es": "la cargadora",
       "en": "loader / front-end loader",
       "tip": "Scoop and haul",
-      "audio": "audio/heavy-la-cargadora-163.mp3"
+      "audio": "audio/heavy-la-cargadora-163.mp3",
+      "img": "loader"
     },
     {
       "id": "heavy-la-gr-a-164",
@@ -1406,7 +1856,8 @@ window.JERGA_DATA = {
       "es": "la grúa",
       "en": "crane",
       "tip": "Swing radius = danger",
-      "audio": "audio/heavy-la-gr-a-164.mp3"
+      "audio": "audio/heavy-la-gr-a-164.mp3",
+      "img": "crane"
     },
     {
       "id": "heavy-el-montacargas-165",
@@ -1414,7 +1865,8 @@ window.JERGA_DATA = {
       "es": "el montacargas",
       "en": "forklift",
       "tip": "Spotter required",
-      "audio": "audio/heavy-el-montacargas-165.mp3"
+      "audio": "audio/heavy-el-montacargas-165.mp3",
+      "img": "forklift"
     },
     {
       "id": "heavy-el-cami-n-de-volteo-166",
@@ -1422,7 +1874,8 @@ window.JERGA_DATA = {
       "es": "el camión de volteo",
       "en": "dump truck",
       "tip": "Haul spoil",
-      "audio": "audio/heavy-el-cami-n-de-volteo-166.mp3"
+      "audio": "audio/heavy-el-cami-n-de-volteo-166.mp3",
+      "img": "dump-truck"
     },
     {
       "id": "heavy-retrocede-despacio-167",
@@ -1446,7 +1899,8 @@ window.JERGA_DATA = {
       "es": "Levanta la carga.",
       "en": "Raise the load.",
       "tip": "Signal clearly",
-      "audio": "audio/heavy-levanta-la-carga-169.mp3"
+      "audio": "audio/heavy-levanta-la-carga-169.mp3",
+      "img": "load"
     },
     {
       "id": "heavy-baja-la-carga-170",
@@ -1454,7 +1908,8 @@ window.JERGA_DATA = {
       "es": "Baja la carga.",
       "en": "Lower the load.",
       "tip": "Soft landing",
-      "audio": "audio/heavy-baja-la-carga-170.mp3"
+      "audio": "audio/heavy-baja-la-carga-170.mp3",
+      "img": "load"
     },
     {
       "id": "heavy-qui-n-es-el-operador-171",
@@ -1710,7 +2165,8 @@ window.JERGA_DATA = {
       "es": "¿Dónde está esa pinche llave?",
       "en": "Where's that damn wrench?",
       "tip": "Lost tools, found feelings",
-      "audio": "audio/tools-d-nde-est-esa-pinche-llave-202.mp3"
+      "audio": "audio/tools-d-nde-est-esa-pinche-llave-202.mp3",
+      "img": "wrench"
     }
   ]
 };

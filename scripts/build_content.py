@@ -258,11 +258,24 @@ def slugify(cat: str, es: str, idx: int) -> str:
     return f"{base}-{idx:03d}"
 
 
+def load_image_catalog():
+    path = Path(__file__).resolve().parent / "image_catalog.json"
+    if not path.exists():
+        return {}, {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data.get("images") or {}, data.get("byPhrase") or {}
+
+
 def build_phrases():
+    _images, by_phrase = load_image_catalog()
     phrases = []
     for i, (cat, es, en, tip) in enumerate(RAW):
         pid = slugify(cat, es, i)
-        phrases.append({"id": pid, "cat": cat, "es": es, "en": en, "tip": tip, "audio": f"audio/{pid}.mp3"})
+        phrase = {"id": pid, "cat": cat, "es": es, "en": en, "tip": tip, "audio": f"audio/{pid}.mp3"}
+        key = by_phrase.get(es)
+        if key:
+            phrase["img"] = key
+        phrases.append(phrase)
     return phrases
 
 
@@ -297,9 +310,11 @@ async def generate_audio(phrases, force=False, concurrency=8):
 
 
 def write_js(phrases):
+    images, _by_phrase = load_image_catalog()
     payload = {
         "voice": VOICE,
         "categories": CATEGORIES,
+        "images": images,
         "phrases": phrases,
     }
     # Compact but readable enough

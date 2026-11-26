@@ -5,6 +5,8 @@ Unfiltered Spanish for construction, welding, and trades jobsites — crew slang
 ## Features
 - Categories including **Jerga** (filthy & true), Safety, Tools, Welding, HVAC, Plumbing, Scaffolding, Heavy Equip
 - Search across Spanish, English, and tips
+- Translate box: type English, get the crew phrase (or a labeled machine translation)
+- Pictures for tools, materials, PPE, and equipment
 - Mexican Spanish audio clips for every built-in phrase
 - Flip cards, Drill (ES↔EN), favorites, spaced review
 - First-run tips; add your own crew slang

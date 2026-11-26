@@ -1,0 +1,460 @@
+{
+  "images": {
+    "hard-hat": {
+      "src": "images/hard-hat.webp",
+      "altEn": "Hard hat",
+      "altEs": "Casco"
+    },
+    "safety-glasses": {
+      "src": "images/safety-glasses.webp",
+      "altEn": "Safety glasses",
+      "altEs": "Gafas de seguridad"
+    },
+    "harness": {
+      "src": "images/harness.webp",
+      "altEn": "Safety harness laid flat",
+      "altEs": "Arn\u00e9s de seguridad"
+    },
+    "ppe": {
+      "src": "images/ppe.webp",
+      "altEn": "PPE kit: hat, glasses, gloves, and vest",
+      "altEs": "Equipo de protecci\u00f3n personal"
+    },
+    "machine": {
+      "src": "images/machine.webp",
+      "altEn": "Generic jobsite machine",
+      "altEs": "M\u00e1quina de obra"
+    },
+    "hammer": {
+      "src": "images/hammer.webp",
+      "altEn": "Claw hammer",
+      "altEs": "Martillo de u\u00f1a"
+    },
+    "drill": {
+      "src": "images/drill.webp",
+      "altEn": "Power drill",
+      "altEs": "Taladro"
+    },
+    "grinder": {
+      "src": "images/grinder.webp",
+      "altEn": "Angle grinder",
+      "altEs": "Amoladora"
+    },
+    "circular-saw": {
+      "src": "images/circular-saw.webp",
+      "altEn": "Circular saw",
+      "altEs": "Sierra circular"
+    },
+    "tape-measure": {
+      "src": "images/tape-measure.webp",
+      "altEn": "Tape measure",
+      "altEs": "Cinta m\u00e9trica"
+    },
+    "level": {
+      "src": "images/level.webp",
+      "altEn": "Spirit level",
+      "altEs": "Nivel"
+    },
+    "ladder": {
+      "src": "images/ladder.webp",
+      "altEn": "Ladder",
+      "altEs": "Escalera"
+    },
+    "scaffold": {
+      "src": "images/scaffold.webp",
+      "altEn": "Scaffold frame",
+      "altEs": "Andamio"
+    },
+    "wrench": {
+      "src": "images/wrench.webp",
+      "altEn": "Adjustable wrench",
+      "altEs": "Llave inglesa"
+    },
+    "pliers": {
+      "src": "images/pliers.webp",
+      "altEn": "Pliers",
+      "altEs": "Alicates"
+    },
+    "screwdriver": {
+      "src": "images/screwdriver.webp",
+      "altEn": "Screwdriver",
+      "altEs": "Destornillador"
+    },
+    "shovel": {
+      "src": "images/shovel.webp",
+      "altEn": "Shovel",
+      "altEs": "Pala"
+    },
+    "wheelbarrow": {
+      "src": "images/wheelbarrow.webp",
+      "altEn": "Wheelbarrow",
+      "altEs": "Carretilla"
+    },
+    "toolbox": {
+      "src": "images/toolbox.webp",
+      "altEn": "Toolbox",
+      "altEs": "Caja de herramientas"
+    },
+    "extension-cord": {
+      "src": "images/extension-cord.webp",
+      "altEn": "Extension cord and plug",
+      "altEs": "Extensi\u00f3n el\u00e9ctrica"
+    },
+    "cement": {
+      "src": "images/cement.webp",
+      "altEn": "Bag of cement",
+      "altEs": "Costal de cemento"
+    },
+    "concrete": {
+      "src": "images/concrete.webp",
+      "altEn": "Wet concrete",
+      "altEs": "Concreto fresco"
+    },
+    "brick": {
+      "src": "images/brick.webp",
+      "altEn": "Brick",
+      "altEs": "Ladrillo"
+    },
+    "rebar": {
+      "src": "images/rebar.webp",
+      "altEn": "Rebar grid",
+      "altEs": "Varilla"
+    },
+    "lumber": {
+      "src": "images/lumber.webp",
+      "altEn": "Stack of lumber",
+      "altEs": "Madera"
+    },
+    "steel": {
+      "src": "images/steel.webp",
+      "altEn": "Steel I-beam",
+      "altEs": "Viga de acero"
+    },
+    "sand": {
+      "src": "images/sand.webp",
+      "altEn": "Pile of sand",
+      "altEs": "Mont\u00f3n de arena"
+    },
+    "gravel": {
+      "src": "images/gravel.webp",
+      "altEn": "Pile of gravel",
+      "altEs": "Grava"
+    },
+    "plywood": {
+      "src": "images/plywood.webp",
+      "altEn": "Sheet of plywood",
+      "altEs": "Triplay"
+    },
+    "drywall": {
+      "src": "images/drywall.webp",
+      "altEn": "Sheet of drywall",
+      "altEs": "Tablaroca"
+    },
+    "mig-welder": {
+      "src": "images/mig-welder.webp",
+      "altEn": "MIG welder and gun",
+      "altEs": "Soldadora MIG"
+    },
+    "tig-welder": {
+      "src": "images/tig-welder.webp",
+      "altEn": "TIG welder and torch",
+      "altEs": "Soldadora TIG"
+    },
+    "stick-welder": {
+      "src": "images/stick-welder.webp",
+      "altEn": "Stick welder and electrode holder",
+      "altEs": "Soldadora de electrodo"
+    },
+    "welding-helmet": {
+      "src": "images/welding-helmet.webp",
+      "altEn": "Welding helmet",
+      "altEs": "Casco de soldar"
+    },
+    "welding-gloves": {
+      "src": "images/welding-gloves.webp",
+      "altEn": "Welding gloves",
+      "altEs": "Guantes de soldadura"
+    },
+    "electrode": {
+      "src": "images/electrode.webp",
+      "altEn": "Welding electrode",
+      "altEs": "Electrodo"
+    },
+    "welding-wire": {
+      "src": "images/welding-wire.webp",
+      "altEn": "Spool of welding wire",
+      "altEs": "Rollo de alambre"
+    },
+    "torch": {
+      "src": "images/torch.webp",
+      "altEn": "Welding torch",
+      "altEs": "Antorcha de soldar"
+    },
+    "gas-cylinder": {
+      "src": "images/gas-cylinder.webp",
+      "altEn": "Shielding-gas cylinder",
+      "altEs": "Cilindro de gas"
+    },
+    "slag": {
+      "src": "images/slag.webp",
+      "altEn": "Weld slag chips",
+      "altEs": "Escoria de soldadura"
+    },
+    "cable": {
+      "src": "images/cable.webp",
+      "altEn": "Electrical cable",
+      "altEs": "Cable"
+    },
+    "breaker": {
+      "src": "images/breaker.webp",
+      "altEn": "Circuit breaker",
+      "altEs": "Breaker"
+    },
+    "multimeter": {
+      "src": "images/multimeter.webp",
+      "altEn": "Multimeter with probes",
+      "altEs": "Mult\u00edmetro"
+    },
+    "electrical-tape": {
+      "src": "images/electrical-tape.webp",
+      "altEn": "Roll of electrical tape",
+      "altEs": "Cinta aislante"
+    },
+    "lockout": {
+      "src": "images/lockout.webp",
+      "altEn": "Lockout padlock and tag",
+      "altEs": "Candado de bloqueo"
+    },
+    "slab": {
+      "src": "images/slab.webp",
+      "altEn": "Concrete slab",
+      "altEs": "Losa"
+    },
+    "formwork": {
+      "src": "images/formwork.webp",
+      "altEn": "Concrete formwork",
+      "altEs": "Cimbra"
+    },
+    "duct": {
+      "src": "images/duct.webp",
+      "altEn": "Air duct",
+      "altEs": "Ducto"
+    },
+    "condenser": {
+      "src": "images/condenser.webp",
+      "altEn": "Outdoor condenser unit",
+      "altEs": "Condensador"
+    },
+    "evaporator": {
+      "src": "images/evaporator.webp",
+      "altEn": "Evaporator coil",
+      "altEs": "Evaporador"
+    },
+    "thermostat": {
+      "src": "images/thermostat.webp",
+      "altEn": "Thermostat",
+      "altEs": "Termostato"
+    },
+    "refrigerant": {
+      "src": "images/refrigerant.webp",
+      "altEn": "Refrigerant cylinder",
+      "altEs": "Refrigerante"
+    },
+    "ac-unit": {
+      "src": "images/ac-unit.webp",
+      "altEn": "Air-conditioning unit",
+      "altEs": "Unidad de aire"
+    },
+    "air-filter": {
+      "src": "images/air-filter.webp",
+      "altEn": "Pleated air filter",
+      "altEs": "Filtro de aire"
+    },
+    "pipe": {
+      "src": "images/pipe.webp",
+      "altEn": "Pipe with a coupling",
+      "altEs": "Tuber\u00eda"
+    },
+    "pvc": {
+      "src": "images/pvc.webp",
+      "altEn": "White PVC pipe elbow",
+      "altEs": "Tubo de PVC"
+    },
+    "copper": {
+      "src": "images/copper.webp",
+      "altEn": "Copper pipe elbow",
+      "altEs": "Tubo de cobre"
+    },
+    "shutoff": {
+      "src": "images/shutoff.webp",
+      "altEn": "Shutoff valve",
+      "altEs": "Llave de paso"
+    },
+    "water": {
+      "src": "images/water.webp",
+      "altEn": "Water",
+      "altEs": "Agua"
+    },
+    "drain": {
+      "src": "images/drain.webp",
+      "altEn": "Floor drain",
+      "altEs": "Drenaje"
+    },
+    "water-heater": {
+      "src": "images/water-heater.webp",
+      "altEn": "Water heater",
+      "altEs": "Calentador de agua"
+    },
+    "plank": {
+      "src": "images/plank.webp",
+      "altEn": "Scaffold plank",
+      "altEs": "Plataforma"
+    },
+    "guardrail": {
+      "src": "images/guardrail.webp",
+      "altEn": "Guardrail",
+      "altEs": "Barandal"
+    },
+    "caster": {
+      "src": "images/caster.webp",
+      "altEn": "Scaffold caster wheel",
+      "altEs": "Rueda de andamio"
+    },
+    "excavator": {
+      "src": "images/excavator.webp",
+      "altEn": "Excavator",
+      "altEs": "Excavadora"
+    },
+    "bulldozer": {
+      "src": "images/bulldozer.webp",
+      "altEn": "Bulldozer",
+      "altEs": "Buld\u00f3cer"
+    },
+    "loader": {
+      "src": "images/loader.webp",
+      "altEn": "Front-end loader",
+      "altEs": "Cargadora"
+    },
+    "crane": {
+      "src": "images/crane.webp",
+      "altEn": "Crane and hook",
+      "altEs": "Gr\u00faa"
+    },
+    "forklift": {
+      "src": "images/forklift.webp",
+      "altEn": "Forklift",
+      "altEs": "Montacargas"
+    },
+    "dump-truck": {
+      "src": "images/dump-truck.webp",
+      "altEn": "Dump truck",
+      "altEs": "Cami\u00f3n de volteo"
+    },
+    "load": {
+      "src": "images/load.webp",
+      "altEn": "Strapped load on a pallet",
+      "altEs": "Carga"
+    }
+  },
+  "byPhrase": {
+    "Ponte el casco.": "hard-hat",
+    "Usa las gafas.": "safety-glasses",
+    "Necesitas el arn\u00e9s.": "harness",
+    "El arn\u00e9s est\u00e1 jodido.": "harness",
+    "Se requiere EPP siempre.": "ppe",
+    "Al\u00e9jate de la m\u00e1quina.": "machine",
+    "el martillo": "hammer",
+    "el taladro": "drill",
+    "la amoladora": "grinder",
+    "la sierra circular": "circular-saw",
+    "la cinta m\u00e9trica": "tape-measure",
+    "el nivel": "level",
+    "la escalera": "ladder",
+    "el andamio": "scaffold",
+    "la llave inglesa": "wrench",
+    "los alicates": "pliers",
+    "el destornillador": "screwdriver",
+    "la pala": "shovel",
+    "la carretilla": "wheelbarrow",
+    "P\u00e1same el martillo.": "hammer",
+    "\u00bfD\u00f3nde est\u00e1 el taladro?": "drill",
+    "Trae las herramientas.": "toolbox",
+    "\u00bfTienes una extensi\u00f3n?": "extension-cord",
+    "\u00bfD\u00f3nde est\u00e1 esa pinche llave?": "wrench",
+    "el cemento": "cement",
+    "el concreto": "concrete",
+    "el ladrillo": "brick",
+    "la varilla": "rebar",
+    "la madera": "lumber",
+    "el acero": "steel",
+    "la arena": "sand",
+    "la grava": "gravel",
+    "el triplay": "plywood",
+    "la tablaroca": "drywall",
+    "Necesitamos m\u00e1s cemento.": "cement",
+    "\u00bfD\u00f3nde est\u00e1 la varilla?": "rebar",
+    "Deja la madera aqu\u00ed.": "lumber",
+    "la soldadora MIG": "mig-welder",
+    "la soldadora TIG": "tig-welder",
+    "soldadura de electrodo": "stick-welder",
+    "el casco de soldar": "welding-helmet",
+    "los guantes de soldadura": "welding-gloves",
+    "el electrodo": "electrode",
+    "el alambre": "welding-wire",
+    "la antorcha": "torch",
+    "el gas de protecci\u00f3n": "gas-cylinder",
+    "Limpia la escoria.": "slag",
+    "Usa el casco.": "welding-helmet",
+    "\u00bfNecesitas m\u00e1s electrodos?": "electrode",
+    "el cable": "cable",
+    "el breaker": "breaker",
+    "Apaga el breaker.": "breaker",
+    "el mult\u00edmetro": "multimeter",
+    "la cinta aislante": "electrical-tape",
+    "No toques el cable.": "cable",
+    "Bloqueo y etiquetado.": "lockout",
+    "el colado": "concrete",
+    "la losa": "slab",
+    "la cimbra": "formwork",
+    "Mezcla el concreto.": "concrete",
+    "La losa est\u00e1 lista.": "slab",
+    "Necesitamos m\u00e1s varilla.": "rebar",
+    "Nivela el concreto.": "concrete",
+    "No camines en el fresco.": "concrete",
+    "el ducto": "duct",
+    "el condensador": "condenser",
+    "el evaporador": "evaporator",
+    "el termostato": "thermostat",
+    "el refrigerante": "refrigerant",
+    "la unidad de aire": "ac-unit",
+    "Apaga la unidad.": "ac-unit",
+    "Cambia el filtro.": "air-filter",
+    "El ducto est\u00e1 tapado.": "duct",
+    "la tuber\u00eda": "pipe",
+    "el PVC": "pvc",
+    "el cobre": "copper",
+    "la llave de paso": "shutoff",
+    "Cierra el agua.": "water",
+    "el drenaje": "drain",
+    "el calentador": "water-heater",
+    "Suelda el cobre.": "copper",
+    "Pega el PVC.": "pvc",
+    "\u00bfD\u00f3nde est\u00e1 la llave principal?": "shutoff",
+    "arma el andamio": "scaffold",
+    "la plataforma": "plank",
+    "el barandal": "guardrail",
+    "la rueda": "caster",
+    "Traba las ruedas.": "caster",
+    "No sobrecargues el andamio.": "scaffold",
+    "usa el arn\u00e9s en altura": "harness",
+    "el nivel del andamio": "scaffold",
+    "la excavadora": "excavator",
+    "el buld\u00f3cer": "bulldozer",
+    "la cargadora": "loader",
+    "la gr\u00faa": "crane",
+    "el montacargas": "forklift",
+    "el cami\u00f3n de volteo": "dump-truck",
+    "Levanta la carga.": "load",
+    "Baja la carga.": "load"
+  }
+}

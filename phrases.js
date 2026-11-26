@@ -5,84 +5,98 @@ window.JERGA_DATA = {
     {
       "id": "Safety",
       "mark": "SF",
+      "icon": "hard-hat",
       "name": "Safety",
       "desc": "Yell these loud"
     },
     {
       "id": "Tools",
       "mark": "TL",
+      "icon": "drill",
       "name": "Tools",
       "desc": "Pass me that damn thing"
     },
     {
       "id": "Materials",
       "mark": "MT",
+      "icon": "lumber",
       "name": "Materials",
       "desc": "Bags, bars, boards"
     },
     {
       "id": "Welding",
       "mark": "WD",
+      "icon": "welding-helmet",
       "name": "Welding",
       "desc": "MIG, TIG, stick"
     },
     {
       "id": "Electrical",
       "mark": "EL",
+      "icon": "breaker",
       "name": "Electrical",
       "desc": "Kill the power first"
     },
     {
       "id": "Concrete",
       "mark": "CN",
+      "icon": "concrete",
       "name": "Concrete",
       "desc": "Pour day talk"
     },
     {
       "id": "HVAC",
       "mark": "HV",
+      "icon": "thermostat",
       "name": "HVAC",
       "desc": "Ducts, units, gas"
     },
     {
       "id": "Plumbing",
       "mark": "PL",
+      "icon": "shutoff",
       "name": "Plumbing",
       "desc": "Shut the water first"
     },
     {
       "id": "Scaffolding",
       "mark": "SC",
+      "icon": "scaffold",
       "name": "Scaffolding",
       "desc": "Lock casters, tie off"
     },
     {
       "id": "Heavy",
       "mark": "HE",
+      "icon": "excavator",
       "name": "Heavy Equip",
       "desc": "Stay out of the radius"
     },
     {
       "id": "Commands",
       "mark": "CM",
+      "icon": "hammer",
       "name": "Commands",
       "desc": "Boss energy, no filter"
     },
     {
       "id": "Jerga",
       "mark": "JG",
+      "icon": "ppe",
       "name": "Jerga",
       "desc": "Clever, filthy, true"
     },
     {
       "id": "Daily",
       "mark": "DY",
+      "icon": "wheelbarrow",
       "name": "Daily",
       "desc": "Crew small talk"
     },
     {
       "id": "Custom",
       "mark": "MY",
+      "icon": "toolbox",
       "name": "My Phrases",
       "desc": "Your crew's worst hits"
     }

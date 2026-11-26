@@ -80,6 +80,31 @@ EXTRA_CSS = """
   border-radius: 999px;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.cat-btn .pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 2px solid var(--ink);
+  background: var(--blaze);
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+.nav-btn .glyph {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+}
+.nav-btn .glyph svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
 """
 
 # Insert extra CSS before closing style
@@ -434,6 +459,12 @@ function filteredPhrases() {
   return list;
 }
 
+function categoryIcon(c) {
+  const meta = DATA.images && c.icon ? DATA.images[c.icon] : null;
+  if (!meta) return "";
+  return `<img class="pic" src="${escapeHtml(meta.src)}" alt="" width="48" height="48">`;
+}
+
 function renderHome() {
   searchWrap.style.display = "";
   const all = getAllPhrases();
@@ -452,7 +483,7 @@ function renderHome() {
       <div class="cat-grid">
         ${categories.map(c => `
           <button type="button" class="cat-btn ${c.id === "Custom" ? "wide" : ""}" data-cat="${escapeHtml(c.id)}">
-            <div class="mark">${escapeHtml(c.mark)}</div>
+            ${categoryIcon(c)}
             <h3>${escapeHtml(c.name)}</h3>
             <p>${escapeHtml(c.desc)}</p>
           </button>
@@ -1064,11 +1095,11 @@ html = f"""<!DOCTYPE html>
 </div>
 
 <nav class="bottom-nav" aria-label="Primary">
-  <button class="nav-btn on" data-view="home"><span class="glyph">JO</span>Home</button>
-  <button class="nav-btn" data-view="cards"><span class="glyph">FL</span>Flip</button>
-  <button class="nav-btn" data-view="quiz"><span class="glyph">QZ</span>Drill</button>
-  <button class="nav-btn" data-view="add"><span class="glyph">+</span>Add</button>
-  <button class="nav-btn" data-view="progress"><span class="glyph">XP</span>More</button>
+  <button class="nav-btn on" data-view="home"><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6.5 10.2V20h11V10.2"/><path d="M10 20v-6h4v6"/></svg></span>Home</button>
+  <button class="nav-btn" data-view="cards"><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="11" height="14" rx="2"/><path d="M16 17v1a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1"/></svg></span>Flip</button>
+  <button class="nav-btn" data-view="quiz"><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/></svg></span>Drill</button>
+  <button class="nav-btn" data-view="add"><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>Add</button>
+  <button class="nav-btn" data-view="progress"><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/></svg></span>More</button>
 </nav>
 <div class="toast" id="toast" role="status"></div>
 <div class="onboard" id="onboard" hidden></div>

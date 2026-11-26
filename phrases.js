@@ -89,357 +89,357 @@ window.JERGA_DATA = {
   ],
   "images": {
     "hard-hat": {
-      "src": "images/hard-hat.svg",
+      "src": "images/hard-hat.webp",
       "altEn": "Hard hat",
       "altEs": "Casco"
     },
     "safety-glasses": {
-      "src": "images/safety-glasses.svg",
+      "src": "images/safety-glasses.webp",
       "altEn": "Safety glasses",
       "altEs": "Gafas de seguridad"
     },
     "harness": {
-      "src": "images/harness.svg",
+      "src": "images/harness.webp",
       "altEn": "Safety harness laid flat",
       "altEs": "Arnés de seguridad"
     },
     "ppe": {
-      "src": "images/ppe.svg",
+      "src": "images/ppe.webp",
       "altEn": "PPE kit: hat, glasses, gloves, and vest",
       "altEs": "Equipo de protección personal"
     },
     "machine": {
-      "src": "images/machine.svg",
+      "src": "images/machine.webp",
       "altEn": "Generic jobsite machine",
       "altEs": "Máquina de obra"
     },
     "hammer": {
-      "src": "images/hammer.svg",
+      "src": "images/hammer.webp",
       "altEn": "Claw hammer",
       "altEs": "Martillo de uña"
     },
     "drill": {
-      "src": "images/drill.svg",
+      "src": "images/drill.webp",
       "altEn": "Power drill",
       "altEs": "Taladro"
     },
     "grinder": {
-      "src": "images/grinder.svg",
+      "src": "images/grinder.webp",
       "altEn": "Angle grinder",
       "altEs": "Amoladora"
     },
     "circular-saw": {
-      "src": "images/circular-saw.svg",
+      "src": "images/circular-saw.webp",
       "altEn": "Circular saw",
       "altEs": "Sierra circular"
     },
     "tape-measure": {
-      "src": "images/tape-measure.svg",
+      "src": "images/tape-measure.webp",
       "altEn": "Tape measure",
       "altEs": "Cinta métrica"
     },
     "level": {
-      "src": "images/level.svg",
+      "src": "images/level.webp",
       "altEn": "Spirit level",
       "altEs": "Nivel"
     },
     "ladder": {
-      "src": "images/ladder.svg",
+      "src": "images/ladder.webp",
       "altEn": "Ladder",
       "altEs": "Escalera"
     },
     "scaffold": {
-      "src": "images/scaffold.svg",
+      "src": "images/scaffold.webp",
       "altEn": "Scaffold frame",
       "altEs": "Andamio"
     },
     "wrench": {
-      "src": "images/wrench.svg",
+      "src": "images/wrench.webp",
       "altEn": "Adjustable wrench",
       "altEs": "Llave inglesa"
     },
     "pliers": {
-      "src": "images/pliers.svg",
+      "src": "images/pliers.webp",
       "altEn": "Pliers",
       "altEs": "Alicates"
     },
     "screwdriver": {
-      "src": "images/screwdriver.svg",
+      "src": "images/screwdriver.webp",
       "altEn": "Screwdriver",
       "altEs": "Destornillador"
     },
     "shovel": {
-      "src": "images/shovel.svg",
+      "src": "images/shovel.webp",
       "altEn": "Shovel",
       "altEs": "Pala"
     },
     "wheelbarrow": {
-      "src": "images/wheelbarrow.svg",
+      "src": "images/wheelbarrow.webp",
       "altEn": "Wheelbarrow",
       "altEs": "Carretilla"
     },
     "toolbox": {
-      "src": "images/toolbox.svg",
+      "src": "images/toolbox.webp",
       "altEn": "Toolbox",
       "altEs": "Caja de herramientas"
     },
     "extension-cord": {
-      "src": "images/extension-cord.svg",
+      "src": "images/extension-cord.webp",
       "altEn": "Extension cord and plug",
       "altEs": "Extensión eléctrica"
     },
     "cement": {
-      "src": "images/cement.svg",
+      "src": "images/cement.webp",
       "altEn": "Bag of cement",
       "altEs": "Costal de cemento"
     },
     "concrete": {
-      "src": "images/concrete.svg",
+      "src": "images/concrete.webp",
       "altEn": "Wet concrete",
       "altEs": "Concreto fresco"
     },
     "brick": {
-      "src": "images/brick.svg",
+      "src": "images/brick.webp",
       "altEn": "Brick",
       "altEs": "Ladrillo"
     },
     "rebar": {
-      "src": "images/rebar.svg",
+      "src": "images/rebar.webp",
       "altEn": "Rebar grid",
       "altEs": "Varilla"
     },
     "lumber": {
-      "src": "images/lumber.svg",
+      "src": "images/lumber.webp",
       "altEn": "Stack of lumber",
       "altEs": "Madera"
     },
     "steel": {
-      "src": "images/steel.svg",
+      "src": "images/steel.webp",
       "altEn": "Steel I-beam",
       "altEs": "Viga de acero"
     },
     "sand": {
-      "src": "images/sand.svg",
+      "src": "images/sand.webp",
       "altEn": "Pile of sand",
       "altEs": "Montón de arena"
     },
     "gravel": {
-      "src": "images/gravel.svg",
+      "src": "images/gravel.webp",
       "altEn": "Pile of gravel",
       "altEs": "Grava"
     },
     "plywood": {
-      "src": "images/plywood.svg",
+      "src": "images/plywood.webp",
       "altEn": "Sheet of plywood",
       "altEs": "Triplay"
     },
     "drywall": {
-      "src": "images/drywall.svg",
+      "src": "images/drywall.webp",
       "altEn": "Sheet of drywall",
       "altEs": "Tablaroca"
     },
     "mig-welder": {
-      "src": "images/mig-welder.svg",
+      "src": "images/mig-welder.webp",
       "altEn": "MIG welder and gun",
       "altEs": "Soldadora MIG"
     },
     "tig-welder": {
-      "src": "images/tig-welder.svg",
+      "src": "images/tig-welder.webp",
       "altEn": "TIG welder and torch",
       "altEs": "Soldadora TIG"
     },
     "stick-welder": {
-      "src": "images/stick-welder.svg",
+      "src": "images/stick-welder.webp",
       "altEn": "Stick welder and electrode holder",
       "altEs": "Soldadora de electrodo"
     },
     "welding-helmet": {
-      "src": "images/welding-helmet.svg",
+      "src": "images/welding-helmet.webp",
       "altEn": "Welding helmet",
       "altEs": "Casco de soldar"
     },
     "welding-gloves": {
-      "src": "images/welding-gloves.svg",
+      "src": "images/welding-gloves.webp",
       "altEn": "Welding gloves",
       "altEs": "Guantes de soldadura"
     },
     "electrode": {
-      "src": "images/electrode.svg",
+      "src": "images/electrode.webp",
       "altEn": "Welding electrode",
       "altEs": "Electrodo"
     },
     "welding-wire": {
-      "src": "images/welding-wire.svg",
+      "src": "images/welding-wire.webp",
       "altEn": "Spool of welding wire",
       "altEs": "Rollo de alambre"
     },
     "torch": {
-      "src": "images/torch.svg",
+      "src": "images/torch.webp",
       "altEn": "Welding torch",
       "altEs": "Antorcha de soldar"
     },
     "gas-cylinder": {
-      "src": "images/gas-cylinder.svg",
+      "src": "images/gas-cylinder.webp",
       "altEn": "Shielding-gas cylinder",
       "altEs": "Cilindro de gas"
     },
     "slag": {
-      "src": "images/slag.svg",
+      "src": "images/slag.webp",
       "altEn": "Weld slag chips",
       "altEs": "Escoria de soldadura"
     },
     "cable": {
-      "src": "images/cable.svg",
+      "src": "images/cable.webp",
       "altEn": "Electrical cable",
       "altEs": "Cable"
     },
     "breaker": {
-      "src": "images/breaker.svg",
+      "src": "images/breaker.webp",
       "altEn": "Circuit breaker",
       "altEs": "Breaker"
     },
     "multimeter": {
-      "src": "images/multimeter.svg",
+      "src": "images/multimeter.webp",
       "altEn": "Multimeter with probes",
       "altEs": "Multímetro"
     },
     "electrical-tape": {
-      "src": "images/electrical-tape.svg",
+      "src": "images/electrical-tape.webp",
       "altEn": "Roll of electrical tape",
       "altEs": "Cinta aislante"
     },
     "lockout": {
-      "src": "images/lockout.svg",
+      "src": "images/lockout.webp",
       "altEn": "Lockout padlock and tag",
       "altEs": "Candado de bloqueo"
     },
     "slab": {
-      "src": "images/slab.svg",
+      "src": "images/slab.webp",
       "altEn": "Concrete slab",
       "altEs": "Losa"
     },
     "formwork": {
-      "src": "images/formwork.svg",
+      "src": "images/formwork.webp",
       "altEn": "Concrete formwork",
       "altEs": "Cimbra"
     },
     "duct": {
-      "src": "images/duct.svg",
+      "src": "images/duct.webp",
       "altEn": "Air duct",
       "altEs": "Ducto"
     },
     "condenser": {
-      "src": "images/condenser.svg",
+      "src": "images/condenser.webp",
       "altEn": "Outdoor condenser unit",
       "altEs": "Condensador"
     },
     "evaporator": {
-      "src": "images/evaporator.svg",
+      "src": "images/evaporator.webp",
       "altEn": "Evaporator coil",
       "altEs": "Evaporador"
     },
     "thermostat": {
-      "src": "images/thermostat.svg",
+      "src": "images/thermostat.webp",
       "altEn": "Thermostat",
       "altEs": "Termostato"
     },
     "refrigerant": {
-      "src": "images/refrigerant.svg",
+      "src": "images/refrigerant.webp",
       "altEn": "Refrigerant cylinder",
       "altEs": "Refrigerante"
     },
     "ac-unit": {
-      "src": "images/ac-unit.svg",
+      "src": "images/ac-unit.webp",
       "altEn": "Air-conditioning unit",
       "altEs": "Unidad de aire"
     },
     "air-filter": {
-      "src": "images/air-filter.svg",
+      "src": "images/air-filter.webp",
       "altEn": "Pleated air filter",
       "altEs": "Filtro de aire"
     },
     "pipe": {
-      "src": "images/pipe.svg",
+      "src": "images/pipe.webp",
       "altEn": "Pipe with a coupling",
       "altEs": "Tubería"
     },
     "pvc": {
-      "src": "images/pvc.svg",
+      "src": "images/pvc.webp",
       "altEn": "White PVC pipe elbow",
       "altEs": "Tubo de PVC"
     },
     "copper": {
-      "src": "images/copper.svg",
+      "src": "images/copper.webp",
       "altEn": "Copper pipe elbow",
       "altEs": "Tubo de cobre"
     },
     "shutoff": {
-      "src": "images/shutoff.svg",
+      "src": "images/shutoff.webp",
       "altEn": "Shutoff valve",
       "altEs": "Llave de paso"
     },
     "water": {
-      "src": "images/water.svg",
+      "src": "images/water.webp",
       "altEn": "Water",
       "altEs": "Agua"
     },
     "drain": {
-      "src": "images/drain.svg",
+      "src": "images/drain.webp",
       "altEn": "Floor drain",
       "altEs": "Drenaje"
     },
     "water-heater": {
-      "src": "images/water-heater.svg",
+      "src": "images/water-heater.webp",
       "altEn": "Water heater",
       "altEs": "Calentador de agua"
     },
     "plank": {
-      "src": "images/plank.svg",
+      "src": "images/plank.webp",
       "altEn": "Scaffold plank",
       "altEs": "Plataforma"
     },
     "guardrail": {
-      "src": "images/guardrail.svg",
+      "src": "images/guardrail.webp",
       "altEn": "Guardrail",
       "altEs": "Barandal"
     },
     "caster": {
-      "src": "images/caster.svg",
+      "src": "images/caster.webp",
       "altEn": "Scaffold caster wheel",
       "altEs": "Rueda de andamio"
     },
     "excavator": {
-      "src": "images/excavator.svg",
+      "src": "images/excavator.webp",
       "altEn": "Excavator",
       "altEs": "Excavadora"
     },
     "bulldozer": {
-      "src": "images/bulldozer.svg",
+      "src": "images/bulldozer.webp",
       "altEn": "Bulldozer",
       "altEs": "Buldócer"
     },
     "loader": {
-      "src": "images/loader.svg",
+      "src": "images/loader.webp",
       "altEn": "Front-end loader",
       "altEs": "Cargadora"
     },
     "crane": {
-      "src": "images/crane.svg",
+      "src": "images/crane.webp",
       "altEn": "Crane and hook",
       "altEs": "Grúa"
     },
     "forklift": {
-      "src": "images/forklift.svg",
+      "src": "images/forklift.webp",
       "altEn": "Forklift",
       "altEs": "Montacargas"
     },
     "dump-truck": {
-      "src": "images/dump-truck.svg",
+      "src": "images/dump-truck.webp",
       "altEn": "Dump truck",
       "altEs": "Camión de volteo"
     },
     "load": {
-      "src": "images/load.svg",
+      "src": "images/load.webp",
       "altEn": "Strapped load on a pallet",
       "altEs": "Carga"
     }

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Hand-built jobsite illustrations. One SVG per object, yellow/black, no people, no logos.
+"""Card-image catalog helper.
 
-Run from the repo root: python3 scripts/build_images.py
-Writes images/*.svg and scripts/image_catalog.json for build_content.py.
+Card pictures are now generated WebP illustrations in images/*.webp
+(yellow/black catalog style). Do not run this script to regenerate
+SVGs — it would overwrite those files. Update scripts/image_catalog.json
+and run: python3 scripts/build_content.py --js-only
 """
 from __future__ import annotations
 
@@ -230,6 +232,11 @@ BY_PHRASE: dict[str, str] = {
 
 
 def main() -> None:
+    raise SystemExit(
+        "Card images are now generated WebP files in images/*.webp. "
+        "This script no longer writes SVGs. Update scripts/image_catalog.json "
+        "and run: python3 scripts/build_content.py --js-only"
+    )
     missing_icons = [k for k in ALTS if k not in ICONS]
     extra_icons = [k for k in ICONS if k not in ALTS]
     if missing_icons or extra_icons:

@@ -1,4 +1,4 @@
-const CACHE = "jerga-de-obra-v7";
+const CACHE = "jerga-de-obra-v8";
 const ASSETS = [
   "./",
   "./index.html",
@@ -8,6 +8,8 @@ const ASSETS = [
   "./icon-512.png",
   "./icon-maskable.png",
   "./apple-touch-icon.png",
+  "./cover.png",
+  "./splash.png",
   "./sw.js",
   "./images/ac-unit.webp",
   "./images/air-filter.webp",

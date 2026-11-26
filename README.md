@@ -1,5 +1,7 @@
 # Jerga de Obra
 
+![Jerga de Obra](cover.png)
+
 Unfiltered Spanish for construction, welding, and trades jobsites — crew slang (*jerga*), not tourist textbook lines. Clever, funny, and as vulgar as the jobsite gets.
 
 ## Features

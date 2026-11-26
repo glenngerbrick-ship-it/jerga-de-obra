@@ -11,6 +11,33 @@
 <meta name="theme-color" content="#FFD100">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Jerga de Obra">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jerga de Obra">
+<meta property="og:description" content="Unfiltered Spanish for construction crews — jerga de obra, not tourist Spanish.">
+<meta property="og:url" content="https://glenngerbrick-ship-it.github.io/jerga-de-obra/">
+<meta property="og:image" content="https://glenngerbrick-ship-it.github.io/jerga-de-obra/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jerga de Obra">
+<meta name="twitter:description" content="Unfiltered Spanish for construction crews — jerga de obra, not tourist Spanish.">
+<meta name="twitter:image" content="https://glenngerbrick-ship-it.github.io/jerga-de-obra/cover.png">
+<link rel="apple-touch-startup-image" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1320x2868.png">
+<link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1290x2796.png">
+<link rel="apple-touch-startup-image" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1206x2622.png">
+<link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1179x2556.png">
+<link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1170x2532.png">
+<link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1284x2778.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1242x2688.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1125x2436.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/828x1792.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/750x1334.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash/1242x2208.png">
+<link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/2048x2732.png">
+<link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/1668x2388.png">
+<link rel="apple-touch-startup-image" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/1640x2360.png">
+<link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash/1620x2160.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1078,9 +1105,86 @@ input:focus, select:focus, textarea:focus {
 .suggest small { display: block; font-weight: 600; color: var(--muted); }
 .suggest:active { transform: scale(0.99); }
 
+/* —— Launch / splash cover —— */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 42%, rgba(255, 209, 0, 0.28), transparent 60%),
+    #0a0a0a;
+  padding: 24px 24px calc(24px + env(safe-area-inset-bottom));
+  transition: opacity 0.4s ease;
+}
+.splash.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.splash-mark {
+  width: min(58vw, 38vh, 280px);
+  height: min(58vw, 38vh, 280px);
+  border-radius: 22%;
+  border: 6px solid #0a0a0a;
+  box-shadow: 10px 10px 0 #ffd100;
+  overflow: hidden;
+  background: #f5f5f5;
+  margin-bottom: 6.5%;
+  flex-shrink: 0;
+}
+.splash-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.splash-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 14vw, 5.2rem);
+  letter-spacing: 0.03em;
+  line-height: 0.88;
+  text-align: center;
+  color: #ffd100;
+}
+.splash-title em {
+  font-style: normal;
+  color: #0a0a0a;
+  background: #ffd100;
+  padding: 0 0.12em;
+  display: inline-block;
+  margin-top: 0.06em;
+  border-radius: 0.08em;
+}
+.splash-tag {
+  margin-top: 0.7em;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 3.4vw, 1.15rem);
+  color: #e8e8e8;
+  text-align: center;
+}
+.onboard-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--blaze);
+  margin-bottom: 14px;
+  display: block;
+}
 </style>
 </head>
 <body>
+<div id="splash" class="splash" role="status" aria-label="Jerga de Obra">
+  <div class="splash-mark">
+    <img src="icon-512.png" alt="" width="512" height="512">
+  </div>
+  <p class="splash-title">JERGA <em>DE OBRA</em></p>
+  <p class="splash-tag">Crew slang. Not tourist Spanish.</p>
+</div>
 <div class="app">
   <header class="top">
     <div class="brand-row">
@@ -1344,6 +1448,7 @@ function renderOnboard() {
   onboardEl.hidden = false;
   onboardEl.innerHTML = `
     <div class="onboard-card" role="dialog" aria-modal="true" aria-label="Welcome">
+      <img src="icon.png" alt="" class="onboard-logo" width="72" height="72">
       <div class="onboard-steps">${ONBOARD_STEPS.map((_, i) =>
         `<span class="${i <= onboardStep ? "on" : ""}"></span>`
       ).join("")}</div>
@@ -2426,6 +2531,19 @@ if ("speechSynthesis" in window) speechSynthesis.getVoices();
 
 render();
 renderOnboard();
+
+function hideSplash() {
+  const el = document.getElementById("splash");
+  if (!el || el.classList.contains("hide")) return;
+  el.classList.add("hide");
+  const done = () => { if (el.parentNode) el.remove(); };
+  el.addEventListener("transitionend", done, { once: true });
+  setTimeout(done, 700);
+}
+if (!new URLSearchParams(location.search).has("splash")) {
+  window.addEventListener("load", () => setTimeout(hideSplash, 500));
+  setTimeout(hideSplash, 2500);
+}
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

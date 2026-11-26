@@ -4,7 +4,7 @@
   "description": "Unfiltered Spanish for construction crews \u2014 jerga de obra, not tourist Spanish.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0a0a0a",
   "theme_color": "#ffd100",
   "icons": [
     {
@@ -28,5 +28,21 @@
   ],
   "scope": "./",
   "lang": "en",
-  "orientation": "portrait-primary"
+  "orientation": "portrait-primary",
+  "screenshots": [
+    {
+      "src": "cover.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Jerga de Obra"
+    },
+    {
+      "src": "splash.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Jerga de Obra"
+    }
+  ]
 }

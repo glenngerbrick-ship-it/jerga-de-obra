@@ -1033,7 +1033,6 @@ html = f"""<!DOCTYPE html>
 <meta name="description" content="Jerga de obra for construction crews — safety, tools, and unfiltered shop talk with Mexican Spanish audio.">
 <title>Jerga de Obra</title>
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="icon" href="icon.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#FFD100">
@@ -1048,7 +1047,7 @@ html = f"""<!DOCTYPE html>
 <div class="app">
   <header class="top">
     <div class="brand-row">
-      <img src="icon.svg" alt="" class="logo" width="56" height="56">
+      <img src="icon.png" alt="" class="logo" width="56" height="56">
       <div class="brand-text">
         <h1>JERGA <em>DE OBRA</em></h1>
         <p class="tagline">Crew slang. Not tourist Spanish.</p>

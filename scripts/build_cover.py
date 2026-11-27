@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build the Jerga de Obra cover, PWA splash, and iOS startup images.
 
-Uses the official hard-hat illustration (high-res crop if present, else icon-512)
-on the app's yellow/black theme, with the product title.
+Uses the official quote-mark app icon (icon-512.png) on the app's
+yellow/black theme, with the product title.
 """
 from __future__ import annotations
 
@@ -22,12 +22,6 @@ GLOW = (255, 209, 0, 255)
 FONT_BEBAS = Path("/usr/share/fonts/truetype/sand-box/google/Bebas Neue/BebasNeue-Regular.ttf")
 FONT_MANROPE = Path("/usr/share/fonts/truetype/sand-box/google/Manrope/Manrope-VariableFont_wght.ttf")
 
-HAT_CANDIDATES = [
-    Path("/workspace/jerga-samples/logo-work2/optionD_card_crop.png"),
-    ROOT / "icon-512.png",
-]
-
-
 def font(path: Path, size: int, weight: int | None = None) -> ImageFont.FreeTypeFont:
     if weight is not None and "Variable" in path.name:
         return ImageFont.truetype(str(path), size=size)
@@ -43,12 +37,11 @@ def bebas(size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(str(FONT_BEBAS), size=size)
 
 
-def load_hat() -> Image.Image:
-    for p in HAT_CANDIDATES:
-        if p.exists():
-            im = Image.open(p).convert("RGBA")
-            return im
-    raise SystemExit("No hard-hat source image found")
+def load_logo() -> Image.Image:
+    path = ROOT / "icon-512.png"
+    if not path.exists():
+        raise SystemExit(f"No logo source found at {path}")
+    return Image.open(path).convert("RGBA")
 
 
 def rounded_rect_mask(size: tuple[int, int], radius: int) -> Image.Image:
@@ -65,8 +58,8 @@ def _apply_mask(im: Image.Image, mask: Image.Image) -> Image.Image:
     return Image.merge("RGBA", (r, g, b, a))
 
 
-def hat_tile(hat: Image.Image, size: int, radius: int, border: int) -> Image.Image:
-    """Square tile: hat on its studio ground, black border, yellow drop shadow."""
+def logo_tile(logo: Image.Image, size: int, radius: int, border: int) -> Image.Image:
+    """Square tile: the app icon, rounded, black border, yellow drop shadow."""
     inner = size
     shadow = max(6, round(size * 0.045))
     canvas = Image.new("RGBA", (inner + shadow, inner + shadow), (0, 0, 0, 0))
@@ -79,14 +72,9 @@ def hat_tile(hat: Image.Image, size: int, radius: int, border: int) -> Image.Ima
         fill=BLAZE,
     )
 
-    tile = Image.new("RGBA", (inner, inner), (0, 0, 0, 0))
+    tile = logo.resize((inner, inner), Image.Resampling.LANCZOS).convert("RGBA")
+    tile = _apply_mask(tile, rounded_rect_mask((inner, inner), radius))
     td = ImageDraw.Draw(tile)
-    td.rounded_rectangle((0, 0, inner - 1, inner - 1), radius=radius, fill=(245, 245, 245, 255))
-    # hat, slightly inset so the brim isn't clipped by the border
-    inset = border + max(4, round(inner * 0.02))
-    fitted = hat.resize((inner - 2 * inset, inner - 2 * inset), Image.Resampling.LANCZOS)
-    tile.alpha_composite(fitted, (inset, inset))
-    # black border
     td.rounded_rectangle(
         (border // 2, border // 2, inner - 1 - border // 2, inner - 1 - border // 2),
         radius=max(1, radius - border // 2),
@@ -170,12 +158,12 @@ def draw_tagline(base: Image.Image, text: str, cx_or_x: int, y: int, size: int, 
     return y + h
 
 
-def compose_cover(hat: Image.Image) -> Image.Image:
+def compose_cover(logo: Image.Image) -> Image.Image:
     W, H = 1200, 630
     base = Image.new("RGBA", (W, H), INK)
     # glow behind the mark
     tile_size = 390
-    tile = hat_tile(hat, tile_size, radius=48, border=8)
+    tile = logo_tile(logo, tile_size, radius=48, border=8)
     mark_x = 86
     mark_y = (H - tile.size[1]) // 2 + 4
     glow = radial_glow((W, H), (mark_x + tile_size // 2, H // 2), 340, alpha=80)
@@ -197,15 +185,15 @@ def compose_cover(hat: Image.Image) -> Image.Image:
     return base.convert("RGB")
 
 
-def compose_portrait(hat: Image.Image, W: int, H: int) -> Image.Image:
+def compose_portrait(logo: Image.Image, W: int, H: int) -> Image.Image:
     base = Image.new("RGBA", (W, H), INK)
     # scale elements by the shorter dimension, leaving safe areas
     safe_top = int(H * 0.12)
     safe_bot = int(H * 0.10)
     usable = H - safe_top - safe_bot
     tile_size = int(min(W * 0.58, usable * 0.38))
-    tile = hat_tile(
-        hat,
+    tile = logo_tile(
+        logo,
         tile_size,
         radius=max(18, tile_size // 8),
         border=max(6, tile_size // 48),
@@ -219,16 +207,16 @@ def compose_portrait(hat: Image.Image, W: int, H: int) -> Image.Image:
     scratch = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     t_bottom, box_w, jerga_w = draw_title_block(scratch, 0, 0, jerga_size, obra_size, align="left")
     tag_h = text_size(ImageDraw.Draw(scratch), "Crew slang. Not tourist Spanish.", manrope(tag_size))[1]
-    gap_hat_title = int(tile_size * 0.18)
+    gap_mark_title = int(tile_size * 0.18)
     gap_title_tag = max(16, int(jerga_size * 0.16))
-    stack_h = tile.size[1] + gap_hat_title + t_bottom + gap_title_tag + tag_h
+    stack_h = tile.size[1] + gap_mark_title + t_bottom + gap_title_tag + tag_h
     y0 = safe_top + max(0, (usable - stack_h) // 2)
 
     glow = radial_glow((W, H), (cx, y0 + tile_size // 2), int(tile_size * 1.05), alpha=70)
     base.alpha_composite(glow)
     base.alpha_composite(tile, (cx - tile.size[0] // 2, y0))
 
-    title_y = y0 + tile.size[1] + gap_hat_title
+    title_y = y0 + tile.size[1] + gap_mark_title
     bottom, _, _ = draw_title_block(base, cx, title_y, jerga_size, obra_size, align="center")
     draw_tagline(base, "Crew slang. Not tourist Spanish.", cx, bottom + gap_title_tag, tag_size, align="center")
     return base.convert("RGB")
@@ -274,18 +262,18 @@ def apple_link_tags() -> str:
 
 
 def main() -> None:
-    hat = load_hat()
-    print("hat source", hat.size)
+    logo = load_logo()
+    print("logo source", logo.size)
 
-    cover = compose_cover(hat)
+    cover = compose_cover(logo)
     save_rgb(cover, OUT / "cover.png")
 
-    splash = compose_portrait(hat, 1080, 1920)
+    splash = compose_portrait(logo, 1080, 1920)
     save_rgb(splash, OUT / "splash.png")
 
     splash_dir = OUT / "splash"
     for w, h, *_ in IOS_SPLASHES:
-        im = compose_portrait(hat, w, h)
+        im = compose_portrait(logo, w, h)
         save_rgb(im, splash_dir / f"{w}x{h}.png")
 
     print("\n<!-- apple-touch-startup-image tags -->")

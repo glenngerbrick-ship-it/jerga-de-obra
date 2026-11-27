@@ -1,4 +1,4 @@
-const CACHE = "jerga-de-obra-v9";
+const CACHE = "jerga-de-obra-v10";
 const ASSETS = [
   "./",
   "./index.html",
